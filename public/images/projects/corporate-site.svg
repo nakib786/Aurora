@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#0e7490" />
+    </linearGradient>
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0891b2" />
+      <stop offset="50%" stop-color="#22d3ee" />
+      <stop offset="100%" stop-color="#a5f3fc" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+      <feOffset dx="2" dy="4" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#22d3ee20" stroke-width="1" />
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+  <rect width="100%" height="100%" fill="url(#grid)" />
+  
+  <!-- Website Browser Window -->
+  <rect x="250" y="100" width="700" height="450" rx="10" fill="#ffffff" stroke="#22d3ee50" stroke-width="2" filter="url(#dropShadow)" />
+  
+  <!-- Browser Header -->
+  <rect x="250" y="100" width="700" height="40" rx="10" fill="#f1f5f9" stroke="#e2e8f080" stroke-width="1" />
+  <circle cx="275" cy="120" r="6" fill="#ef4444" />
+  <circle cx="295" cy="120" r="6" fill="#f59e0b" />
+  <circle cx="315" cy="120" r="6" fill="#10b981" />
+  <rect x="340" y="110" width="300" height="20" rx="3" fill="#e2e8f0" />
+  <text x="360" y="124" font-family="Arial, sans-serif" font-size="10" fill="#64748b">https://aurora-corp.com</text>
+  
+  <!-- Website Header -->
+  <rect x="250" y="140" width="700" height="70" fill="#ffffff" stroke="#e2e8f080" stroke-width="1" />
+  
+  <!-- Navigation -->
+  <g transform="translate(280, 175)">
+    <!-- Logo -->
+    <rect width="120" height="30" rx="5" fill="#0ea5e950" stroke="#0ea5e9" stroke-width="1" />
+    <text x="60" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0e7490" text-anchor="middle">AURORA</text>
+    
+    <!-- Nav Items -->
+    <rect x="160" y="5" width="70" height="20" rx="3" fill="#f8fafc" />
+    <text x="195" y="20" font-family="Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">ABOUT</text>
+    
+    <rect x="250" y="5" width="70" height="20" rx="3" fill="#f8fafc" />
+    <text x="285" y="20" font-family="Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">SERVICES</text>
+    
+    <rect x="340" y="5" width="70" height="20" rx="3" fill="#f8fafc" />
+    <text x="375" y="20" font-family="Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">PORTFOLIO</text>
+    
+    <rect x="430" y="5" width="70" height="20" rx="3" fill="#f8fafc" />
+    <text x="465" y="20" font-family="Arial, sans-serif" font-size="10" fill="#334155" text-anchor="middle">CAREERS</text>
+    
+    <!-- Contact Button -->
+    <rect x="530" y="5" width="100" height="30" rx="15" fill="#0ea5e9" />
+    <text x="580" y="23" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle">CONTACT US</text>
+  </g>
+  
+  <!-- Hero Section -->
+  <rect x="250" y="210" width="700" height="250" fill="#f8fafc" />
+  
+  <!-- Hero Content -->
+  <g transform="translate(290, 260)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">TRANSFORM YOUR BUSINESS</text>
+    <text x="0" y="30" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#0f172a">WITH AURORA</text>
+    
+    <text x="0" y="70" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Innovative digital solutions that drive growth</text>
+    <text x="0" y="90" font-family="Arial, sans-serif" font-size="14" fill="#64748b">and transform how you do business.</text>
+    
+    <!-- CTA Buttons -->
+    <rect y="120" width="150" height="40" rx="20" fill="#0ea5e9" />
+    <text x="75" y="145" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">GET STARTED</text>
+    
+    <rect x="170" y="120" width="150" height="40" rx="20" fill="#ffffff" stroke="#0ea5e9" stroke-width="2" />
+    <text x="245" y="145" font-family="Arial, sans-serif" font-size="12" fill="#0ea5e9" font-weight="bold" text-anchor="middle">LEARN MORE</text>
+  </g>
+  
+  <!-- Hero Image - Abstract Business Graph -->
+  <g transform="translate(680, 280)">
+    <rect width="220" height="140" rx="10" fill="#f1f5f9" />
+    
+    <!-- Business chart -->
+    <g transform="translate(30, 110)">
+      <line x1="0" y1="0" x2="160" y2="0" stroke="#94a3b8" stroke-width="1" />
+      <line x1="0" y1="0" x2="0" y2="-80" stroke="#94a3b8" stroke-width="1" />
+      
+      <!-- Chart bars -->
+      <rect x="20" y="-30" width="15" height="30" rx="2" fill="#22d3ee" />
+      <rect x="45" y="-50" width="15" height="50" rx="2" fill="#0ea5e9" />
+      <rect x="70" y="-40" width="15" height="40" rx="2" fill="#22d3ee" />
+      <rect x="95" y="-70" width="15" height="70" rx="2" fill="#0ea5e9" />
+      <rect x="120" y="-60" width="15" height="60" rx="2" fill="#22d3ee" />
+      
+      <!-- Chart line -->
+      <path d="M 27,  -40 
+               L 52,  -60 
+               L 77,  -50 
+               L 102, -80 
+               L 127, -70" 
+            fill="none" stroke="#0f172a" stroke-width="2" />
+      
+      <!-- Chart points -->
+      <circle cx="27" cy="-40" r="4" fill="#0f172a" />
+      <circle cx="52" cy="-60" r="4" fill="#0f172a" />
+      <circle cx="77" cy="-50" r="4" fill="#0f172a" />
+      <circle cx="102" cy="-80" r="4" fill="#0f172a" />
+      <circle cx="127" cy="-70" r="4" fill="#0f172a" />
+    </g>
+    
+    <!-- Chart title -->
+    <text x="110" y="25" font-family="Arial, sans-serif" font-size="12" fill="#334155" text-anchor="middle">BUSINESS GROWTH</text>
+  </g>
+  
+  <!-- Services Section -->
+  <rect x="250" y="460" width="700" height="90" fill="#ffffff" />
+  <text x="290" y="490" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">OUR SERVICES</text>
+  
+  <!-- Service Items -->
+  <g transform="translate(290, 500)">
+    <!-- Service 1 -->
+    <g>
+      <rect width="150" height="40" rx="5" fill="#f1f5f9" />
+      <circle cx="20" cy="20" r="10" fill="#0ea5e920" stroke="#0ea5e9" stroke-width="1" />
+      <text x="50" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">CONSULTING</text>
+      <text x="50" y="30" font-family="Arial, sans-serif" font-size="8" fill="#64748b">Strategic Guidance</text>
+    </g>
+    
+    <!-- Service 2 -->
+    <g transform="translate(170, 0)">
+      <rect width="150" height="40" rx="5" fill="#f1f5f9" />
+      <circle cx="20" cy="20" r="10" fill="#0ea5e920" stroke="#0ea5e9" stroke-width="1" />
+      <text x="50" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">DEVELOPMENT</text>
+      <text x="50" y="30" font-family="Arial, sans-serif" font-size="8" fill="#64748b">Custom Solutions</text>
+    </g>
+    
+    <!-- Service 3 -->
+    <g transform="translate(340, 0)">
+      <rect width="150" height="40" rx="5" fill="#f1f5f9" />
+      <circle cx="20" cy="20" r="10" fill="#0ea5e920" stroke="#0ea5e9" stroke-width="1" />
+      <text x="50" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">ANALYTICS</text>
+      <text x="50" y="30" font-family="Arial, sans-serif" font-size="8" fill="#64748b">Data-Driven Insights</text>
+    </g>
+    
+    <!-- Service 4 -->
+    <g transform="translate(510, 0)">
+      <rect width="150" height="40" rx="5" fill="#f1f5f9" />
+      <circle cx="20" cy="20" r="10" fill="#0ea5e920" stroke="#0ea5e9" stroke-width="1" />
+      <text x="50" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">SECURITY</text>
+      <text x="50" y="30" font-family="Arial, sans-serif" font-size="8" fill="#64748b">Enterprise Protection</text>
+    </g>
+  </g>
+  
+  <!-- Trust Badges -->
+  <g transform="translate(725, 420)">
+    <circle cx="25" cy="25" r="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="25" y="29" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">ISO 27001</text>
+  </g>
+  
+  <g transform="translate(775, 420)">
+    <circle cx="25" cy="25" r="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="25" y="29" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">GDPR</text>
+  </g>
+  
+  <g transform="translate(825, 420)">
+    <circle cx="25" cy="25" r="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="25" y="29" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">SOC 2</text>
+  </g>
+  
+  <!-- Global Network Illustration -->
+  <g transform="translate(120, 315)">
+    <circle cx="50" cy="50" r="80" fill="none" stroke="#22d3ee30" stroke-width="1" />
+    <circle cx="50" cy="50" r="60" fill="none" stroke="#22d3ee40" stroke-width="1" />
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#22d3ee50" stroke-width="1" />
+    
+    <!-- Connection Points -->
+    <circle cx="50" cy="0" r="6" fill="#0ea5e940" stroke="#0ea5e9" stroke-width="1" />
+    <circle cx="130" cy="50" r="6" fill="#0ea5e940" stroke="#0ea5e9" stroke-width="1" />
+    <circle cx="50" cy="130" r="6" fill="#0ea5e940" stroke="#0ea5e9" stroke-width="1" />
+    <circle cx="0" cy="80" r="6" fill="#0ea5e940" stroke="#0ea5e9" stroke-width="1" />
+    <circle cx="110" cy="110" r="6" fill="#0ea5e940" stroke="#0ea5e9" stroke-width="1" />
+    
+    <!-- Connection Lines -->
+    <line x1="50" y1="0" x2="130" y2="50" stroke="#22d3ee40" stroke-width="1" />
+    <line x1="130" y1="50" x2="110" y2="110" stroke="#22d3ee40" stroke-width="1" />
+    <line x1="110" y1="110" x2="50" y2="130" stroke="#22d3ee40" stroke-width="1" />
+    <line x1="50" y1="130" x2="0" y2="80" stroke="#22d3ee40" stroke-width="1" />
+    <line x1="0" y1="80" x2="50" y2="0" stroke="#22d3ee40" stroke-width="1" />
+  </g>
+  
+  <!-- Decorative Tech Elements -->
+  <g transform="translate(1000, 150)" opacity="0.4">
+    <path d="M0,0 L30,0 L30,30 L60,30 L60,60 L30,60 L30,90 L0,90 L0,60 L-30,60 L-30,30 L0,30 Z" 
+          fill="none" stroke="#22d3ee" stroke-width="1" />
+    <circle cx="0" cy="0" r="5" fill="#0ea5e980" />
+    <circle cx="30" cy="30" r="5" fill="#0ea5e980" />
+    <circle cx="0" cy="60" r="5" fill="#0ea5e980" />
+    <circle cx="30" cy="90" r="5" fill="#0ea5e980" />
+    <circle cx="60" cy="60" r="5" fill="#0ea5e980" />
+    <circle cx="60" cy="30" r="5" fill="#0ea5e980" />
+    <circle cx="-30" cy="30" r="5" fill="#0ea5e980" />
+    <circle cx="-30" cy="60" r="5" fill="#0ea5e980" />
+    <circle cx="0" cy="90" r="5" fill="#0ea5e980" />
+  </g>
+  
+  <!-- Animated Pulse Effect -->
+  <circle cx="600" cy="600" r="15" fill="#0ea5e950" opacity="0.5">
+    <animate attributeName="r" values="15;45;15" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Page Title -->
+  <text x="600" y="570" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">AURORA CORPORATE SITE</text>
+  <text x="600" y="600" font-family="Arial, sans-serif" font-size="16" fill="#a5f3fc" text-anchor="middle">PROFESSIONAL BUSINESS SOLUTIONS FOR ENTERPRISE</text>
+</svg> 

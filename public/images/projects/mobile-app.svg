@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#075985" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#7dd3fc" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#7dd3fc20" stroke-width="1" />
+    </pattern>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+      <feOffset dx="2" dy="4" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+  <rect width="100%" height="100%" fill="url(#grid)" />
+  
+  <!-- Mobile Phone Device -->
+  <g transform="translate(280, 140)" filter="url(#dropShadow)">
+    <!-- Phone Frame -->
+    <rect width="200" height="400" rx="22" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+    <rect x="10" y="10" width="180" height="380" rx="16" fill="#1e293b" />
+    
+    <!-- Notch -->
+    <rect x="65" y="10" width="70" height="20" rx="10" fill="#0f172a" />
+    
+    <!-- Status Bar -->
+    <rect x="10" y="10" width="180" height="25" rx="10" fill="#0c4a6e" stroke="#0c4a6e" stroke-width="1" />
+    <text x="25" y="26" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f0f9ff">9:41</text>
+    
+    <!-- Status Icons -->
+    <rect x="155" y="17" width="25" height="10" rx="5" fill="#f0f9ff" opacity="0.8" />
+    <rect x="135" y="17" width="15" height="10" rx="3" fill="#f0f9ff" opacity="0.6" />
+    <rect x="115" y="17" width="15" height="10" rx="3" fill="#f0f9ff" opacity="0.6" />
+    
+    <!-- Navigation Bar -->
+    <rect x="10" y="355" width="180" height="35" rx="8" fill="#0c4a6e" />
+    
+    <!-- Home Indicator -->
+    <rect x="65" y="370" width="70" height="4" rx="2" fill="#f0f9ff" opacity="0.8" />
+    
+    <!-- Nav Icons -->
+    <circle cx="45" cy="372" r="8" fill="#7dd3fc40" stroke="#7dd3fc" stroke-width="1" />
+    <circle cx="100" cy="372" r="8" fill="#7dd3fc40" stroke="#7dd3fc" stroke-width="1" />
+    <circle cx="155" cy="372" r="8" fill="#7dd3fc40" stroke="#7dd3fc" stroke-width="1" />
+    
+    <!-- App Header -->
+    <rect x="10" y="35" width="180" height="40" fill="#0284c7" />
+    <text x="100" y="60" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f0f9ff" text-anchor="middle">AURORA APP</text>
+    <circle cx="30" cy="55" r="10" fill="#7dd3fc30" stroke="#7dd3fc" stroke-width="1" />
+    
+    <!-- Menu Icon -->
+    <line x1="165" y1="50" x2="180" y2="50" stroke="#f0f9ff" stroke-width="2" />
+    <line x1="165" y1="55" x2="180" y2="55" stroke="#f0f9ff" stroke-width="2" />
+    <line x1="165" y1="60" x2="180" y2="60" stroke="#f0f9ff" stroke-width="2" />
+    
+    <!-- Content Area -->
+    <rect x="10" y="75" width="180" height="280" fill="#0f172a" />
+    
+    <!-- Story Carousel -->
+    <g transform="translate(20, 85)">
+      <rect width="160" height="60" rx="8" fill="#0c4a6e" />
+      
+      <!-- Story Circles -->
+      <circle cx="30" cy="30" r="20" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="80" cy="30" r="20" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="130" cy="30" r="20" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+      
+      <!-- Story Icons -->
+      <path d="M24,24 L36,30 L24,36 Z" fill="#f0f9ff" />
+      <rect x="75" y="25" width="10" height="10" fill="#f0f9ff" />
+      <circle cx="130" cy="30" r="5" fill="#f0f9ff" />
+    </g>
+    
+    <!-- Feature Area -->
+    <rect x="20" y="155" width="160" height="80" rx="8" fill="#0c4a6e" />
+    <g transform="translate(100, 195)">
+      <path d="M-20,-10 L0,-20 L20,-10 L20,10 L0,20 L-20,10 Z" fill="#0284c7" opacity="0.7" />
+      <path d="M-10,-5 L0,-10 L10,-5 L10,5 L0,10 L-10,5 Z" fill="#7dd3fc" />
+    </g>
+    <text x="100" y="165" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f0f9ff" text-anchor="middle">AURORA</text>
+    <text x="100" y="180" font-family="Arial, sans-serif" font-size="10" fill="#f0f9ff" text-anchor="middle">FEATURES</text>
+    <text x="100" y="225" font-family="Arial, sans-serif" font-size="10" fill="#f0f9ff" text-anchor="middle">SYNC EVERYWHERE</text>
+    
+    <!-- List Items -->
+    <g transform="translate(20, 245)">
+      <!-- Item 1 -->
+      <rect width="160" height="50" rx="8" fill="#0c4a6e" />
+      <circle cx="25" cy="25" r="15" fill="#0284c7" />
+      <rect x="50" y="15" width="100" height="10" rx="3" fill="#7dd3fc40" />
+      <rect x="50" y="30" width="70" height="6" rx="3" fill="#7dd3fc20" />
+      
+      <!-- Item 2 -->
+      <g transform="translate(0, 60)">
+        <rect width="160" height="50" rx="8" fill="#0c4a6e" />
+        <circle cx="25" cy="25" r="15" fill="#0284c7" />
+        <rect x="50" y="15" width="100" height="10" rx="3" fill="#7dd3fc40" />
+        <rect x="50" y="30" width="70" height="6" rx="3" fill="#7dd3fc20" />
+      </g>
+    </g>
+  </g>
+  
+  <!-- Tablet Device -->
+  <g transform="translate(520, 150)" filter="url(#dropShadow)">
+    <!-- Tablet Frame -->
+    <rect width="300" height="380" rx="20" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+    <rect x="15" y="15" width="270" height="350" rx="14" fill="#1e293b" />
+    
+    <!-- Camera -->
+    <circle cx="150" cy="10" r="4" fill="#7dd3fc40" />
+    
+    <!-- Status Bar -->
+    <rect x="15" y="15" width="270" height="25" rx="5" fill="#0c4a6e" />
+    <text x="30" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f0f9ff">9:41</text>
+    
+    <!-- Status Icons -->
+    <rect x="240" y="22" width="30" height="10" rx="5" fill="#f0f9ff" opacity="0.8" />
+    <rect x="210" y="22" width="20" height="10" rx="3" fill="#f0f9ff" opacity="0.6" />
+    
+    <!-- App Content -->
+    <rect x="15" y="40" width="270" height="300" fill="#0f172a" />
+    
+    <!-- App Header -->
+    <rect x="15" y="40" width="270" height="50" fill="#0284c7" />
+    <text x="150" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f0f9ff" text-anchor="middle">AURORA TABLET</text>
+    <circle cx="40" cy="65" r="12" fill="#7dd3fc30" stroke="#7dd3fc" stroke-width="1" />
+    
+    <!-- App Menu -->
+    <rect x="250" y="55" width="25" height="20" rx="3" fill="#0284c7" />
+    <line x1="255" y1="60" x2="270" y2="60" stroke="#f0f9ff" stroke-width="1.5" />
+    <line x1="255" y1="65" x2="270" y2="65" stroke="#f0f9ff" stroke-width="1.5" />
+    <line x1="255" y1="70" x2="270" y2="70" stroke="#f0f9ff" stroke-width="1.5" />
+    
+    <!-- Grid Layout -->
+    <g transform="translate(35, 110)">
+      <!-- Row 1 -->
+      <rect width="110" height="100" rx="8" fill="#0c4a6e" />
+      <rect x="130" width="110" height="100" rx="8" fill="#0c4a6e" />
+      
+      <!-- Row 2 -->
+      <rect y="120" width="110" height="100" rx="8" fill="#0c4a6e" />
+      <rect x="130" y="120" width="110" height="100" rx="8" fill="#0c4a6e" />
+      
+      <!-- Grid Content - Images -->
+      <g transform="translate(55, 50)">
+        <rect width="40" height="40" rx="5" fill="#0284c7" />
+        <circle cx="20" cy="20" r="12" fill="#7dd3fc30" />
+      </g>
+      
+      <text x="55" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f0f9ff" text-anchor="middle">PHOTOS</text>
+      <text x="185" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f0f9ff" text-anchor="middle">MESSAGES</text>
+      <text x="55" y="140" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f0f9ff" text-anchor="middle">CALENDAR</text>
+      <text x="185" y="140" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f0f9ff" text-anchor="middle">SETTINGS</text>
+      
+      <g transform="translate(185, 50)">
+        <rect width="40" height="40" rx="5" fill="#0284c7" />
+        <circle cx="20" cy="20" r="12" fill="#7dd3fc30" />
+      </g>
+      
+      <g transform="translate(55, 170)">
+        <rect width="40" height="40" rx="5" fill="#0284c7" />
+        <circle cx="20" cy="20" r="12" fill="#7dd3fc30" />
+      </g>
+      
+      <g transform="translate(185, 170)">
+        <rect width="40" height="40" rx="5" fill="#0284c7" />
+        <circle cx="20" cy="20" r="12" fill="#7dd3fc30" />
+      </g>
+    </g>
+    
+    <!-- Navigation Bar -->
+    <rect x="15" y="340" width="270" height="25" rx="5" fill="#0c4a6e" />
+    
+    <!-- Nav Indicators -->
+    <circle cx="90" cy="352" r="8" fill="#7dd3fc40" stroke="#7dd3fc" stroke-width="1" />
+    <circle cx="150" cy="352" r="8" fill="#7dd3fc40" stroke="#7dd3fc" stroke-width="1" />
+    <circle cx="210" cy="352" r="8" fill="#7dd3fc40" stroke="#7dd3fc" stroke-width="1" />
+  </g>
+  
+  <!-- Smartwatch Device -->
+  <g transform="translate(860, 170)" filter="url(#dropShadow)">
+    <!-- Watch Frame -->
+    <rect width="120" height="140" rx="35" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+    <ellipse cx="60" cy="70" rx="50" ry="55" fill="#1e293b" stroke="#0284c7" stroke-width="1" />
+    
+    <!-- Digital Crown -->
+    <circle cx="120" cy="70" r="8" fill="#38bdf8" />
+    <circle cx="120" cy="70" r="3" fill="#0f172a" />
+    <rect x="118" y="40" width="4" height="20" rx="2" fill="#0f172a" />
+    <rect x="118" y="80" width="4" height="20" rx="2" fill="#0f172a" />
+    
+    <!-- Watch Band Top -->
+    <rect x="35" y="-25" width="50" height="25" rx="8" fill="#0f172a" />
+    
+    <!-- Watch Band Bottom -->
+    <rect x="35" y="140" width="50" height="25" rx="8" fill="#0f172a" />
+    
+    <!-- Watch Face -->
+    <g transform="translate(60, 70)">
+      <!-- Time -->
+      <text x="0" y="-25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f0f9ff" text-anchor="middle">10:30</text>
+      
+      <!-- Date -->
+      <text x="0" y="-10" font-family="Arial, sans-serif" font-size="8" fill="#7dd3fc" text-anchor="middle">MON 15</text>
+      
+      <!-- Activity Rings -->
+      <circle cx="0" cy="10" r="15" fill="none" stroke="#ff3b30" stroke-width="3" stroke-dasharray="75 25" />
+      <circle cx="0" cy="10" r="12" fill="none" stroke="#ffcc00" stroke-width="3" stroke-dasharray="60 40" />
+      <circle cx="0" cy="10" r="9" fill="none" stroke="#4cd964" stroke-width="3" stroke-dasharray="80 20" />
+      
+      <!-- Stats -->
+      <g transform="translate(0, 35)">
+        <text x="0" y="0" font-family="Arial, sans-serif" font-size="8" fill="#7dd3fc" text-anchor="middle">5,280 steps</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Connecting Lines -->
+  <path d="M380,270 C430,270 470,270 520,270" stroke="#38bdf8" stroke-width="1" stroke-dasharray="5,5" />
+  <path d="M820,270 C830,260 850,250 860,240" stroke="#38bdf8" stroke-width="1" stroke-dasharray="5,5" />
+  
+  <!-- Data Flow Indicators -->
+  <g transform="translate(435, 260)">
+    <circle cx="0" cy="0" r="5" fill="#38bdf8">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  <g transform="translate(840, 255)">
+    <circle cx="0" cy="0" r="5" fill="#38bdf8">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Code Snippets -->
+  <g transform="translate(330, 450)">
+    <rect width="540" height="80" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+    <text x="20" y="20" font-family="monospace" font-size="12" fill="#7dd3fc">const syncAcrossDevices = (userData) => {</text>
+    <text x="40" y="40" font-family="monospace" font-size="12" fill="#7dd3fc">  const connectedDevices = getDevices();</text>
+    <text x="40" y="60" font-family="monospace" font-size="12" fill="#7dd3fc">  return connectedDevices.map(device => syncData(device.id, userData));</text>
+    <text x="20" y="80" font-family="monospace" font-size="12" fill="#7dd3fc">};</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="580" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">AURORA MOBILE APP</text>
+  <text x="600" y="605" font-family="Arial, sans-serif" font-size="14" fill="#7dd3fc" text-anchor="middle">SEAMLESS CROSS-PLATFORM EXPERIENCE FOR ALL YOUR DEVICES</text>
+</svg> 
