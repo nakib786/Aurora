@@ -3,8 +3,6 @@ import MainLayout from '@/components/layout/MainLayout';
 import AccountingHero from '@/components/layout/AccountingHero';
 import VerticalScrollSection from '@/components/layout/VerticalScrollSection';
 import HorizontalScrollSection from '@/components/layout/HorizontalScrollSection';
-import AccountingServices from '@/components/accounting/AccountingServices';
-import WebDesignServices from '@/components/webdesign/WebDesignServices';
 
 export default function Home() {
   return (

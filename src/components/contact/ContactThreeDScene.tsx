@@ -1,4 +1,4 @@
-// @ts-nocheck - Ignoring React Three Fiber JSX type issues
+// @ts-nocheck
 'use client';
 
 import React, { useRef, useState, useEffect, useMemo } from 'react';
@@ -8,17 +8,11 @@ import {
   Text, 
   Environment, 
   PresentationControls, 
-  useGLTF,
   ContactShadows,
   MeshDistortMaterial,
-  PresentationControlProps,
   Stars,
-  Cloud,
   Html,
-  useTexture,
   Trail,
-  Sphere,
-  OrbitControls,
   RoundedBox,
   Torus,
   MeshWobbleMaterial
@@ -34,7 +28,9 @@ const canvasStyle = {
   position: 'absolute',
   top: 0,
   left: 0,
-  zIndex: 5
+  zIndex: 5,
+  pointerEvents: 'auto',
+  backgroundColor: 'transparent'
 };
 
 // Prop types for components
@@ -789,14 +785,23 @@ const ContactThreeDScene: React.FC = () => {
   
   return (
     <div style={canvasStyle}>
-      <Canvas shadows camera={{ position: [0, 0, 8], fov: 50 }}>
+      <Canvas 
+        className="threejs" 
+        shadows 
+        dpr={[1, 2]} 
+        linear
+        flat={false}
+        gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true }}
+        camera={{ position: [0, 0, 8], fov: 50 }}
+      >
         <color attach="background" args={['#070C22']} />
         
         {/* Scene lighting */}
-        <ambientLight intensity={0.2} />
-        <pointLight position={[10, 10, 10]} intensity={0.5} />
-        <pointLight position={[-10, -10, -10]} intensity={0.2} />
-        <spotLight position={[5, 5, 5]} intensity={0.5} angle={0.3} penumbra={1} castShadow />
+        <ambientLight intensity={0.3} />
+        <directionalLight position={[10, 10, 10]} intensity={1.0} castShadow />
+        <pointLight position={[10, 10, 10]} intensity={0.8} />
+        <pointLight position={[-10, -10, -10]} intensity={0.5} />
+        <spotLight position={[5, 5, 5]} intensity={0.8} angle={0.3} penumbra={1} castShadow />
         
         {/* Scene controls */}
         <PresentationControls
@@ -866,6 +871,9 @@ const ContactThreeDScene: React.FC = () => {
         {/* Particle system in background */}
         <ParticleSwarm count={150} />
       </Canvas>
+      
+      {/* Debug overlay to help locate the 3D canvas */}
+      <div className="debug-3d-layer">3D Scene Active</div>
     </div>
   );
 };

@@ -100,7 +100,7 @@ const FloatingInfoCards: React.FC = () => {
             How to Reach Us
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            We're here to help! Reach out to us using any of the methods below.
+            We&apos;re here to help! Reach out to us using any of the methods below.
           </p>
         </motion.div>
 

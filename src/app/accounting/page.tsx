@@ -2,7 +2,7 @@ import React from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import AccountingServices from '@/components/accounting/AccountingServices';
 import { ParallaxLeft, ParallaxRight, ParallaxUp } from '@/components/animations/ParallaxScroller';
-import { RevealText, TypewriterText, CountUp } from '@/components/animations/AdvancedAnimations';
+import { RevealText, TypewriterText } from '@/components/animations/AdvancedAnimations';
 
 // Import our anime.js components
 import AnimeWrapper from '@/components/animations/AnimeWrapper';

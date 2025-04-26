@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { TypewriterText, RevealText } from '@/components/animations/AdvancedAnimations';
 import ContactThreeDScene from '@/components/contact/ContactThreeDScene';
 import ContactForm from '@/components/contact/ContactForm';
@@ -10,7 +10,6 @@ import FloatingInfoCards from '@/components/contact/FloatingInfoCards';
 import SocialMediaContact from '@/components/contact/SocialMediaContact';
 import { ContactJsonLd } from '@/components/contact/ContactSEO';
 import ParticleBackground from '@/components/contact/ParticleBackground';
-import { BsArrowDown } from 'react-icons/bs';
 
 // Define Lenis types
 interface LenisOptions {
@@ -42,8 +41,6 @@ interface LenisConstructor {
 }
 
 export default function ContactPage() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
   
   // Init smooth scrolling
   useEffect(() => {
@@ -93,12 +90,8 @@ export default function ContactPage() {
             }
           });
         });
-        
-        // Set loaded state for animations
-        setIsLoaded(true);
       } catch (error) {
         console.error("Error initializing smooth scroll:", error);
-        setIsLoaded(true); // Still set loaded state even if there's an error
       }
     };
 
@@ -157,7 +150,7 @@ export default function ContactPage() {
       >
         {/* Background elements */}
         <motion.div 
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 z-0"
           style={{ opacity: bgOpacity }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-blue-900 to-indigo-900"></div>
@@ -168,7 +161,7 @@ export default function ContactPage() {
         </motion.div>
         
         {/* 3D Scene - Will be visible on all screens */}
-        <div className="absolute inset-0 w-full h-full z-0">
+        <div className="absolute inset-0 w-full h-full z-5" style={{ zIndex: 5 }}>
           <Suspense fallback={
             <div className="w-full h-full flex items-center justify-center">
               <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-indigo-500"></div>
@@ -179,7 +172,7 @@ export default function ContactPage() {
         </div>
         
         {/* Mobile-friendly content overlay */}
-        <div className="px-4 py-16 flex flex-col items-center justify-center relative z-10 text-center">
+        <div className="px-4 py-16 flex flex-col items-center justify-center relative z-10 text-center" style={{ zIndex: 10 }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -190,7 +183,7 @@ export default function ContactPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-indigo-200">Get In Touch</h1>
             </RevealText>
             <TypewriterText className="text-lg text-blue-100" delay={500}>
-              We'd love to hear from you. Let's create something amazing together.
+              We&apos;d love to hear from you. Let&apos;s create something amazing together.
             </TypewriterText>
             
             <motion.div 
@@ -290,7 +283,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
             >
-              Let's Connect
+              Let&apos;s Connect
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -339,7 +332,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
             >
-              Fill out the form below and we'll get back to you as soon as possible.
+              Fill out the form below and we&apos;ll get back to you as soon as possible.
             </motion.p>
           </div>
           

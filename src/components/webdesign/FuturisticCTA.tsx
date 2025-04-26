@@ -80,7 +80,7 @@ const FuturisticCTA = () => {
                 </h2>
                 
                 <p className="text-xl text-blue-100 mb-8">
-                  Let's collaborate to create exceptional web experiences that elevate your brand and drive business growth.
+                  Let&apos;s collaborate to create exceptional web experiences that elevate your brand and drive business growth.
                 </p>
                 
                 <div className="flex flex-wrap gap-4">

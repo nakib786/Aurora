@@ -96,17 +96,6 @@ const WebDesignPage = () => {
     initSmoothScroll();
   }, []);
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    if (isDarkMode) {
-      document.documentElement.classList.remove('dark-mode');
-      document.documentElement.classList.add('light-mode');
-    } else {
-      document.documentElement.classList.remove('light-mode');
-      document.documentElement.classList.add('dark-mode');
-    }
-  };
-
   return (
     <MainLayout>
       {/* Progress bar for scrolling */}

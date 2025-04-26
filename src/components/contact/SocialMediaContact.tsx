@@ -173,7 +173,7 @@ const SocialMediaContact: React.FC = () => {
           className="mt-12 text-center"
         >
           <p className="text-gray-400">
-            Don't see your preferred platform? 
+            Don&apos;t see your preferred platform? 
             <a href="#contact-form" className="ml-2 text-blue-400 hover:text-blue-300 transition-colors underline">
               Message us directly
             </a>

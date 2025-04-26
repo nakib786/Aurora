@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 interface FormData {
@@ -187,7 +187,7 @@ const ContactForm: React.FC = () => {
             Send Us a Message
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Have a question or want to work with us? Send us a message and we'll get back to you as soon as possible.
+            Have a question or want to work with us? Send us a message and we&apos;ll get back to you as soon as possible.
           </p>
         </motion.div>
 
