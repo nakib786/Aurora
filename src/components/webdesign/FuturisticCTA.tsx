@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from '../animations/MotionComponents';
 
 const FuturisticCTA = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

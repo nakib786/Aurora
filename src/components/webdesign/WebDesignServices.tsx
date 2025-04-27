@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from '../animations/MotionComponents';
 import AnimeEffects from '../animations/AnimeEffects';
 import ThreeScene from '../animations/ThreeScene';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from '../animations/MotionComponents';
 import { TypewriterText } from '../animations/AdvancedAnimations';
 import AnimeParticles from '../animations/AnimeParticles';
 

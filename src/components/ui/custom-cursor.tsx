@@ -6,7 +6,7 @@ import {
   motion,
   useMotionValue,
   useSpring,
-} from "framer-motion";
+} from '../animations/MotionComponents';
 import { cn } from "@/lib/utils";
 
 const customCursorSpringConfig = {

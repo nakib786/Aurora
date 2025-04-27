@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from '../../components/animations/MotionComponents';
 import { TypewriterText, RevealText } from '@/components/animations/AdvancedAnimations';
 import ContactThreeDScene from '@/components/contact/ContactThreeDScene';
 import ContactForm from '@/components/contact/ContactForm';
@@ -10,6 +10,7 @@ import FloatingInfoCards from '@/components/contact/FloatingInfoCards';
 import SocialMediaContact from '@/components/contact/SocialMediaContact';
 import { ContactJsonLd } from '@/components/contact/ContactSEO';
 import ParticleBackground from '@/components/contact/ParticleBackground';
+import ContactFAQ from '@/components/contact/ContactFAQ';
 
 // Define Lenis types
 interface LenisOptions {
@@ -154,10 +155,89 @@ export default function ContactPage() {
           style={{ opacity: bgOpacity }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-blue-900 to-indigo-900"></div>
+          
+          {/* Grid Pattern Background */}
+          <div 
+            className="absolute inset-0 opacity-[0.07]" 
+            style={{ 
+              backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), 
+                                linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+              backgroundSize: '40px 40px',
+            }}
+          />
+          
+          {/* Radial Gradient Overlay */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%)'
+            }}
+          />
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
           
           {/* Client-side particle effect */}
           <ParticleBackground />
+          
+          {/* Floating geometric shapes */}
+          <div className="absolute inset-0 overflow-hidden">
+            {/* Floating circles */}
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 0.3 }}
+              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+              className="absolute top-[15%] left-[10%] w-16 h-16 rounded-full border-2 border-blue-400/30"
+            />
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 0.2 }}
+              transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse", delay: 0.5 }}
+              className="absolute top-[25%] right-[15%] w-24 h-24 rounded-full border-2 border-indigo-400/20"
+            />
+            <motion.div
+              initial={{ y: -15, opacity: 0 }}
+              animate={{ y: 0, opacity: 0.25 }}
+              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", delay: 1 }}
+              className="absolute bottom-[20%] left-[20%] w-20 h-20 rounded-full border-2 border-purple-400/30"
+            />
+            
+            {/* Floating squares */}
+            <motion.div
+              initial={{ rotate: 0 }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute top-[40%] right-[25%] w-12 h-12 border-2 border-cyan-400/20"
+              style={{ transformOrigin: "center center" }}
+            />
+            <motion.div
+              initial={{ rotate: 0 }}
+              animate={{ rotate: -360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              className="absolute bottom-[30%] right-[10%] w-16 h-16 border-2 border-blue-400/20"
+              style={{ transformOrigin: "center center" }}
+            />
+            
+            {/* Floating triangles */}
+            <motion.div 
+              initial={{ rotate: 0 }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute top-[10%] right-[30%]"
+            >
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 0L40 40H0L20 0Z" fill="rgba(129, 140, 248, 0.1)" stroke="rgba(129, 140, 248, 0.3)" strokeWidth="1" />
+              </svg>
+            </motion.div>
+            <motion.div 
+              initial={{ rotate: 0 }}
+              animate={{ rotate: -360 }}
+              transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+              className="absolute bottom-[15%] left-[35%]"
+            >
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 0L30 30H0L15 0Z" fill="rgba(192, 132, 252, 0.1)" stroke="rgba(192, 132, 252, 0.3)" strokeWidth="1" />
+              </svg>
+            </motion.div>
+          </div>
         </motion.div>
         
         {/* 3D Scene - Will be visible on all screens */}
@@ -208,51 +288,83 @@ export default function ContactPage() {
           <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
           <div className="absolute bottom-1/3 right-1/4 w-32 h-32 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-pulse delay-700"></div>
           <div className="absolute top-2/3 right-1/3 w-20 h-20 bg-indigo-500 rounded-full filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
-        </div>
-        
-        {/* Floating indicators */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10 flex space-x-8">
+          
+          {/* Additional SVG decorative elements */}
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 0.8, y: 0 }}
-            transition={{ duration: 0.5, delay: 2 }}
-            className="text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="absolute inset-0 pointer-events-none"
           >
-            <div className="w-12 h-12 mx-auto bg-indigo-600/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-indigo-500/30">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <span className="block mt-2 text-sm text-indigo-200">Email Us</span>
+            <svg className="absolute top-20 right-20 w-40 h-40 text-blue-400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M47.1,-57.8C61.3,-50.6,73.2,-37.8,78.1,-22.5C83,-7.3,80.9,10.4,72.7,24.2C64.4,37.9,50,47.6,35.4,56.2C20.8,64.7,6.2,72,-9.4,74.3C-25,76.6,-41.6,73.9,-53.9,64.4C-66.3,54.9,-74.5,38.5,-77.5,21.2C-80.5,3.9,-78.4,-14.3,-70.8,-29.6C-63.3,-44.9,-50.3,-57.2,-36,-63.3C-21.8,-69.4,-6.5,-69.1,7.7,-68.3C21.9,-67.4,33,-65,47.1,-57.8Z" transform="translate(100 100)" />
+            </svg>
+            
+            <svg className="absolute bottom-20 left-10 w-32 h-32 text-purple-400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M35.6,-59.5C46.6,-53.6,56.3,-44.6,62.8,-33.3C69.3,-22,72.6,-8.4,72.1,5.2C71.7,18.8,67.4,32.5,59.1,43.7C50.7,54.9,38.2,63.6,24.5,70.4C10.7,77.3,-4.3,82.2,-18.2,79.6C-32.1,77.1,-44.8,67.1,-53.2,55C-61.6,42.9,-65.6,28.7,-70.7,13.5C-75.7,-1.7,-81.9,-18,-78.4,-32C-74.9,-46,-61.7,-57.9,-47.1,-62.8C-32.5,-67.8,-16.2,-65.9,-1.4,-63.8C13.4,-61.7,26.8,-59.4,35.6,-59.5Z" transform="translate(100 100)" />
+            </svg>
+            
+            <svg className="absolute top-40 left-10 w-28 h-28 text-indigo-400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M38.5,-65.3C48.4,-58.5,53.9,-44.5,58.8,-31.1C63.7,-17.7,68,-4.9,68.4,8.4C68.7,21.8,65.1,35.6,57.2,47C49.2,58.3,36.9,67.2,23.1,72.7C9.3,78.2,-6,80.4,-19.1,76.5C-32.3,72.7,-43.3,63,-53.3,51.4C-63.4,39.8,-72.6,26.4,-76.5,11.2C-80.4,-4,-79,-21,-71.7,-34.3C-64.3,-47.6,-51.1,-57.2,-37.7,-62.4C-24.3,-67.6,-10.7,-68.3,2.4,-72.1C15.4,-75.8,28.7,-82.6,38.5,-65.3Z" transform="translate(100 100)" />
+            </svg>
+            
+            <svg className="absolute bottom-40 right-20 w-36 h-36 text-cyan-400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M44.9,-69.7C58.2,-62.7,69,-49.7,74.6,-35C80.2,-20.2,80.6,-3.8,76.9,11.2C73.1,26.2,65.2,39.8,54.1,50.3C43,60.7,28.7,68,13.2,72.9C-2.4,77.9,-19.2,80.5,-34.4,76.1C-49.6,71.7,-63.2,60.3,-72.5,45.8C-81.8,31.2,-86.7,13.6,-85.5,-3.5C-84.3,-20.6,-77,-37.1,-65.7,-48.9C-54.4,-60.8,-39.1,-68,-24.1,-73.5C-9,-79,5.6,-82.8,20.7,-80.1C35.8,-77.4,51.4,-69.2,44.9,-69.7Z" transform="translate(100 100)" />
+            </svg>
           </motion.div>
           
+          {/* Interactive Particles */}
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 0.8, y: 0 }}
-            transition={{ duration: 0.5, delay: 2.2 }}
-            className="text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0 pointer-events-none"
           >
-            <div className="w-12 h-12 mx-auto bg-blue-600/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-blue-500/30">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-            </div>
-            <span className="block mt-2 text-sm text-blue-200">Call Us</span>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 0.8, y: 0 }}
-            transition={{ duration: 0.5, delay: 2.4 }}
-            className="text-center"
-          >
-            <div className="w-12 h-12 mx-auto bg-purple-600/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-purple-500/30">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
-            <span className="block mt-2 text-sm text-purple-200">Visit Us</span>
+            {(() => {
+              // Use a self-invoking function to handle the particles
+              const [particles, setParticles] = useState<React.ReactNode[]>([]);
+              
+              useEffect(() => {
+                // Create particles only on the client-side
+                const newParticles = Array.from({ length: 20 }).map((_, i) => {
+                  const width = window.innerWidth;
+                  const height = window.innerHeight;
+                  
+                  return (
+                    <motion.div
+                      key={i}
+                      className="absolute w-2 h-2 rounded-full bg-white"
+                      initial={{
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        opacity: Math.random() * 0.5 + 0.3,
+                      }}
+                      animate={{
+                        x: [
+                          Math.random() * width,
+                          Math.random() * width,
+                          Math.random() * width,
+                        ],
+                        y: [
+                          Math.random() * height,
+                          Math.random() * height,
+                          Math.random() * height,
+                        ],
+                      }}
+                      transition={{
+                        duration: 10 + Math.random() * 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    />
+                  );
+                });
+                
+                setParticles(newParticles);
+              }, []);
+              
+              return particles;
+            })()}
           </motion.div>
         </div>
         
@@ -357,88 +469,7 @@ export default function ContactPage() {
       </section>
       
       {/* FAQ Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
-            >
-              Frequently Asked Questions
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
-            >
-              Find answers to common questions about our services and support.
-            </motion.p>
-          </div>
-          
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              {
-                question: "What's the best way to contact Aurora for urgent support?",
-                answer: "For urgent support, please call our customer service line at +1 (234) 567-890. For less time-sensitive inquiries, you can use the contact form or email us at info@aurora-nn.com."
-              },
-              {
-                question: "How quickly can I expect a response after submitting the contact form?",
-                answer: "We typically respond to all inquiries within 24-48 hours during business days. For urgent matters, we recommend calling us directly."
-              },
-              {
-                question: "Do you offer international services?",
-                answer: "Yes, we provide services to clients worldwide. Please specify your location and requirements in your message, and our international team will assist you."
-              },
-              {
-                question: "Can I schedule a consultation before committing to your services?",
-                answer: "Absolutely! We offer complimentary initial consultations to discuss your needs and how we can help. Please use the contact form or call us to schedule a consultation."
-              },
-              {
-                question: "Are your services available for individuals or only businesses?",
-                answer: "We provide services to both individuals and businesses of all sizes. Our solutions are customized to meet the specific needs of each client."
-              }
-            ].map((faq, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-md"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{faq.question}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-12 text-center"
-          >
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Still have questions? We're here to help!
-            </p>
-            <a
-              href="#contact-form"
-              className="inline-flex items-center px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors shadow-lg"
-            >
-              <span>Contact Us</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <ContactFAQ />
       
       {/* Scroll to top button */}
       <button 

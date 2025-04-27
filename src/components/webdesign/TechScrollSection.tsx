@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from '../../components/animations/MotionComponents';
 
 const technologies = [
   { name: 'React', icon: 'react', color: '#61DAFB' },

@@ -6,7 +6,7 @@ import {
   useMotionValue, 
   useSpring, 
   AnimatePresence 
-} from 'framer-motion';
+} from '../animations/MotionComponents';
 import { 
   TypewriterText, 
   RevealText,

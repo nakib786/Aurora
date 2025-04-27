@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Home, FileText, Calculator, Globe, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from '../animations/MotionComponents';
 import { ThemeToggle } from '../ui/theme-toggle';
 import AnimatedLogo from '../animations/AnimatedLogo';
 import { NavBar } from '../ui/tubelight-navbar';
@@ -75,7 +75,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo - now using the simplified AnimatedLogo component */}
         <Link href="/" className="flex items-center">
           <AnimatedLogo 
             className={`h-10 w-48 ${

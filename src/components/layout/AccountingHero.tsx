@@ -6,7 +6,7 @@ import {
   useMotionValue, 
   useSpring, 
   AnimatePresence 
-} from 'framer-motion';
+} from '../animations/MotionComponents';
 import { 
   TypewriterText, 
   RevealText,
@@ -154,10 +154,6 @@ export default function AccountingHero() {
 
       {/* Main content */}
       <div className="container mx-auto px-4 z-10">
-        <div className="flex justify-center mb-8">
-          <AnimatedLogo className="w-64 h-32 text-blue-600 dark:text-blue-400" delay={300} />
-        </div>
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left column - Text content */}
           <motion.div 

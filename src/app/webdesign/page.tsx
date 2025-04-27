@@ -232,6 +232,8 @@ const WebDesignPage = () => {
           border: 2px solid white;
           opacity: 0; /* Start with invisible cursor */
           transition: opacity 0.3s ease;
+          left: -100px; /* Move off-screen initially to prevent hydration errors */
+          top: -100px;
         }
         
         @media (min-width: 768px) {
@@ -323,16 +325,21 @@ const WebDesignPage = () => {
           let cursorX = 0;
           let cursorY = 0;
           
-          // Track cursor position
+          // Track cursor position - Wait for client side to run this
           document.addEventListener('mousemove', (e) => {
             cursorX = e.clientX;
             cursorY = e.clientY;
             
-            // Update cursor position directly (don't use style.display here)
+            // Update cursor position directly
             const cursor = document.getElementById('custom-cursor');
             if (cursor) {
               cursor.style.left = \`\${cursorX}px\`;
               cursor.style.top = \`\${cursorY}px\`;
+              
+              // Ensure the cursor is visible after first movement
+              if (cursor.style.opacity === '0' || !cursor.style.opacity) {
+                cursor.style.opacity = '1';
+              }
             }
             
             // Detect which section we're in
@@ -412,14 +419,19 @@ const WebDesignPage = () => {
             }
           }
           
-          // Make sure cursor is visible on page load
-          document.addEventListener('DOMContentLoaded', () => {
-            updateCursorSection();
-            const cursor = document.getElementById('custom-cursor');
-            if (cursor) {
-              cursor.style.opacity = '1';
-            }
-          });
+          // Make sure cursor becomes visible only after client-side interaction
+          if (typeof window !== 'undefined') {
+            // Instead of making the cursor visible on load,
+            // we'll wait for the first mouse movement before showing it
+            // Force the cursor to be visible by setting a timeout
+            setTimeout(() => {
+              // Don't set position here, only set initial visibility to 0
+              const cursor = document.getElementById('custom-cursor');
+              if (cursor) {
+                // Don't set initial position or opacity - leave that to mouse movement
+              }
+            }, 500);
+          }
           
           // Add interaction effects to elements
           document.querySelectorAll('a, button, [role="button"]').forEach(element => {
@@ -506,14 +518,6 @@ const WebDesignPage = () => {
               behavior: 'smooth'
             });
           });
-          
-          // Force the cursor to be visible by setting a timeout
-          setTimeout(() => {
-            const cursor = document.getElementById('custom-cursor');
-            if (cursor) {
-              cursor.style.opacity = '1';
-            }
-          }, 500);
         `
       }} />
     </MainLayout>
