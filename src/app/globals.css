@@ -245,6 +245,14 @@
 /* Add smooth scrolling to the entire page */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Custom cursor styles */

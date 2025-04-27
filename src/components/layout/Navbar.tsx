@@ -120,7 +120,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 md:hidden flex flex-col"
+            className="fixed inset-0 z-40 md:hidden flex flex-col w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -137,7 +137,7 @@ const Navbar = () => {
             
             {/* Menu content */}
             <motion.div 
-              className="relative z-10 mt-16 flex-1 bg-white dark:bg-gray-900 p-5 rounded-t-3xl shadow-2xl overflow-auto"
+              className="relative z-10 mt-16 flex-1 bg-white dark:bg-gray-900 p-5 rounded-t-3xl shadow-2xl overflow-y-auto overflow-x-hidden max-w-full"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
