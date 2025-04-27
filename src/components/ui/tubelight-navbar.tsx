@@ -22,6 +22,7 @@ export function NavBar({ items, className }: NavBarProps) {
   const pathname = usePathname()
   const [activeTab, setActiveTab] = useState(items[0].name)
   const [isMobile, setIsMobile] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   // Update active tab based on current URL pathname
   useEffect(() => {
@@ -49,6 +50,21 @@ export function NavBar({ items, className }: NavBarProps) {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div
       className={cn(
@@ -59,9 +75,11 @@ export function NavBar({ items, className }: NavBarProps) {
     >
       <div className={cn(
         "flex items-center transition-all duration-300",
-        "gap-1 sm:gap-2 bg-background/5 border border-border backdrop-blur-lg",
-        "rounded-full shadow-lg", 
-        isMobile ? "py-2 px-4" : "py-1 px-1"
+        "gap-1 sm:gap-2",
+        // Mobile (always has background)
+        isMobile ? "bg-background/5 border border-border backdrop-blur-lg py-2 px-4 rounded-full shadow-lg" :
+        // Desktop (background only when scrolled)
+        scrolled ? "bg-transparent py-1 px-1 rounded-full" : "py-1 px-1 rounded-full"
       )}>
         {items.map((item) => {
           const Icon = item.icon
@@ -74,8 +92,9 @@ export function NavBar({ items, className }: NavBarProps) {
               onClick={() => setActiveTab(item.name)}
               className={cn(
                 "relative cursor-pointer transition-colors",
-                "text-foreground/80 hover:text-primary",
-                isActive && "bg-muted text-primary",
+                scrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white",
+                isActive && scrolled && "bg-white/10 text-primary",
+                isActive && !scrolled && "text-white",
                 isMobile 
                   ? "px-2 py-2 rounded-full flex items-center justify-center"
                   : "text-sm font-semibold px-4 sm:px-6 py-2 rounded-full"
@@ -98,8 +117,10 @@ export function NavBar({ items, className }: NavBarProps) {
                 <motion.div
                   layoutId="lamp"
                   className={cn(
-                    "absolute inset-0 w-full bg-primary/5 rounded-full -z-10",
-                    isMobile && "bg-primary/10"
+                    "absolute inset-0 w-full rounded-full -z-10",
+                    isMobile && "bg-primary/10",
+                    !isMobile && scrolled && "bg-white/10",
+                    !isMobile && !scrolled && "bg-white/20"
                   )}
                   initial={false}
                   transition={{
@@ -109,14 +130,22 @@ export function NavBar({ items, className }: NavBarProps) {
                   }}
                 >
                   <div className={cn(
-                    "absolute left-1/2 -translate-x-1/2 bg-primary rounded-t-full",
-                    isMobile 
-                      ? "w-5 h-1 -top-1" 
-                      : "w-8 h-1 -top-2"
+                    "absolute left-1/2 -translate-x-1/2 rounded-t-full",
+                    isMobile ? "w-5 h-1 -top-1 bg-primary" : 
+                    scrolled ? "w-8 h-1 -top-[0.5rem] bg-primary" : "w-8 h-1 -top-[0.5rem] bg-white"
                   )}>
-                    <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
-                    <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
-                    <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
+                    <div className={cn(
+                      "absolute w-12 h-6 rounded-full blur-md -top-2 -left-2",
+                      scrolled ? "bg-primary/20" : "bg-white/30"
+                    )} />
+                    <div className={cn(
+                      "absolute w-8 h-6 rounded-full blur-md -top-1",
+                      scrolled ? "bg-primary/20" : "bg-white/30"
+                    )} />
+                    <div className={cn(
+                      "absolute w-4 h-4 rounded-full blur-sm top-0 left-2",
+                      scrolled ? "bg-primary/20" : "bg-white/30"
+                    )} />
                   </div>
                 </motion.div>
               )}

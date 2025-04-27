@@ -68,8 +68,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'py-2' : 'py-5'
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled ? 'py-2 bg-white/10 dark:bg-gray-900/20 backdrop-blur-lg backdrop-saturate-150 border-b border-white/10 dark:border-gray-800/30 shadow-lg shadow-black/5' : 'py-5 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -100,7 +100,9 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-4">
           <ThemeToggle />
           <motion.button
-            className="relative z-[60] p-2 rounded-full bg-transparent hover:bg-white/10 transition-colors"
+            className={`relative z-[60] p-2 rounded-full transition-colors ${
+              scrolled ? 'hover:bg-white/20' : 'hover:bg-white/10'
+            }`}
             onClick={toggleMenu}
             aria-label="Toggle Menu"
             whileTap={{ scale: 0.9 }}
@@ -115,7 +117,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, rotate: 45 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X size={20} className="text-white" />
+                  <X size={20} className={scrolled ? 'text-gray-900 dark:text-white' : 'text-white'} />
                 </motion.div>
               ) : (
                 <motion.div
@@ -125,7 +127,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, rotate: -45 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu size={20} className="text-white" />
+                  <Menu size={20} className={scrolled ? 'text-gray-900 dark:text-white' : 'text-white'} />
                 </motion.div>
               )}
             </AnimatePresence>
