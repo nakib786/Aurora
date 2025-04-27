@@ -40,7 +40,7 @@ const FuturisticHero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-24">
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-indigo-900 to-purple-950 z-0">
         <div className="absolute inset-0 opacity-20">
