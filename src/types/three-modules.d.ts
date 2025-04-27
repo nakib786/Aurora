@@ -67,87 +67,14 @@ declare module '@react-three/drei' {
   
   export function Environment(props: {
     preset?: string;
-    scene?: THREE.Scene;
     background?: boolean;
-    children?: any;
-    path?: string;
     files?: string | string[];
-    extensions?: string[];
-  }): any;
+    path?: string;
+    scene?: THREE.Scene;
+  }): JSX.Element;
   
-  export function OrbitControls(props?: {
-    makeDefault?: boolean;
-    camera?: THREE.Camera;
-    domElement?: HTMLElement;
-    enableDamping?: boolean;
-    dampingFactor?: number;
-    rotateSpeed?: number;
-    maxPolarAngle?: number;
-    minPolarAngle?: number;
-    maxDistance?: number;
-    minDistance?: number;
-    enableZoom?: boolean;
-    zoomSpeed?: number;
-    enableRotate?: boolean;
-    enablePan?: boolean;
-    target?: [number, number, number] | THREE.Vector3;
-    autoRotate?: boolean;
-    autoRotateSpeed?: number;
-    maxAzimuthAngle?: number;
-    minAzimuthAngle?: number;
-  }): any;
-  
-  export function PerspectiveCamera(props: {
-    makeDefault?: boolean;
-    position?: [number, number, number];
-    rotation?: [number, number, number];
-    fov?: number;
-    aspect?: number;
-    near?: number;
-    far?: number;
-    zoom?: number;
-    focus?: number;
-    filmOffset?: number;
-    filmGauge?: number;
-    children?: any;
-  }): any;
-  
-  export function useHelper(
-    object: { current: THREE.Object3D | undefined },
-    helper: any,
-    ...args: any[]
-  ): void;
-
-  export function Float(props: {
-    speed?: number;
-    rotationIntensity?: number;
-    floatIntensity?: number;
-    children?: any;
-    position?: [number, number, number];
-    rotation?: [number, number, number];
-  }): any;
-
-  export function Text(props: {
-    children?: any;
-    color?: string;
-    fontSize?: number;
-    maxWidth?: number;
-    lineHeight?: number;
-    letterSpacing?: number;
-    textAlign?: 'left' | 'right' | 'center' | 'justify';
-    font?: string;
-    anchorX?: 'left' | 'center' | 'right' | number;
-    anchorY?: 'top' | 'middle' | 'bottom' | number;
-    position?: [number, number, number];
-    rotation?: [number, number, number];
-    scale?: number | [number, number, number];
-  }): any;
-
-  export function PresentationControls(props: any): any;
-  
-  export interface PresentationControlProps {
+  export function PresentationControls(props: {
     global?: boolean;
-    cursor?: boolean;
     snap?: boolean;
     speed?: number;
     zoom?: number;
@@ -155,83 +82,43 @@ declare module '@react-three/drei' {
     polar?: [number, number];
     azimuth?: [number, number];
     config?: any;
-  }
-
-  export function ContactShadows(props: {
-    position?: [number, number, number];
-    scale?: number | [number, number, number];
-    resolution?: number;
-    opacity?: number;
-    blur?: number;
-    far?: number;
-    color?: string;
-    frames?: number;
-  }): any;
-
-  export function MeshDistortMaterial(props: {
-    color?: string;
+  }): JSX.Element;
+  
+  export function Float(props: {
     speed?: number;
-    distort?: number;
-    radius?: number;
-    metalness?: number;
-    roughness?: number;
-    transparent?: boolean;
-    opacity?: number;
-  }): any;
-
-  export function Stars(props?: {
+    rotationIntensity?: number;
+    floatIntensity?: number;
+    children?: React.ReactNode;
+  }): JSX.Element;
+  
+  export function Stars(props: {
     radius?: number;
     depth?: number;
     count?: number;
     factor?: number;
     saturation?: number;
     fade?: boolean;
-  }): any;
-
-  export function Cloud(props?: {
-    position?: [number, number, number];
-    scale?: number | [number, number, number];
-    opacity?: number;
     speed?: number;
-    width?: number;
-    depth?: number;
-    segments?: number;
-  }): any;
+  }): JSX.Element;
+
+  export function Text(props: {
+    anchorX?: 'left' | 'center' | 'right';
+    anchorY?: 'top' | 'middle' | 'bottom';
+    color?: string;
+    fontSize?: number;
+    font?: string;
+    position?: [number, number, number];
+    children?: React.ReactNode;
+  }): JSX.Element;
 
   export function Html(props: {
-    position?: [number, number, number];
-    rotation?: [number, number, number];
-    scale?: number | [number, number, number];
     transform?: boolean;
-    zIndexRange?: [number, number];
-    sprite?: boolean;
-    center?: boolean;
-    fullscreen?: boolean;
-    distanceFactor?: number;
-    occlude?: boolean | string[];
-    className?: string;
-    style?: any;
-    children?: any;
-  }): any;
-
-  export function useTexture(path: string | string[]): THREE.Texture | THREE.Texture[];
-
-  export function Trail(props: {
-    width?: number;
-    length?: number;
-    color?: string;
-    attenuation?: (t: number) => number;
-    target?: THREE.Object3D;
-    children?: any;
-  }): any;
-
-  export function Sphere(props: {
-    args?: [radius?: number, widthSegments?: number, heightSegments?: number];
-    children?: any;
     position?: [number, number, number];
-    rotation?: [number, number, number];
     scale?: number | [number, number, number];
-  }): any;
+    className?: string;
+    zIndexRange?: [number, number];
+    children?: React.ReactNode;
+  }): JSX.Element;
 }
 
 // Explicitly define JSX namespace for React Three Fiber components
@@ -263,6 +150,7 @@ declare namespace JSX {
     ambientLight: any;
     directionalLight: any;
     pointLight: any;
+    spotLight: any;
     hemisphereLight: any;
     
     // Misc

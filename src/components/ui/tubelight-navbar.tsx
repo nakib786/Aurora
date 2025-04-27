@@ -52,7 +52,7 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-30 mb-6 sm:pt-6",
+        "fixed bottom-0 left-1/2 -translate-x-1/2 z-30 mb-6",
         "md:static md:transform-none md:mb-0 md:pt-0",
         className,
       )}
@@ -61,7 +61,7 @@ export function NavBar({ items, className }: NavBarProps) {
         "flex items-center transition-all duration-300",
         "gap-1 sm:gap-2 bg-background/5 border border-border backdrop-blur-lg",
         "rounded-full shadow-lg", 
-        isMobile ? "py-2 px-2" : "py-1 px-1"
+        isMobile ? "py-2 px-4" : "py-1 px-1"
       )}>
         {items.map((item) => {
           const Icon = item.icon
@@ -77,13 +77,13 @@ export function NavBar({ items, className }: NavBarProps) {
                 "text-foreground/80 hover:text-primary",
                 isActive && "bg-muted text-primary",
                 isMobile 
-                  ? "px-3 py-3 rounded-full flex items-center justify-center"
+                  ? "px-2 py-2 rounded-full flex items-center justify-center"
                   : "text-sm font-semibold px-4 sm:px-6 py-2 rounded-full"
               )}
             >
               <span className={cn(
-                "hidden transition-opacity duration-300",
-                isMobile ? "md:inline" : "md:inline"
+                "transition-opacity duration-300",
+                isMobile ? "hidden" : "inline"
               )}>
                 {item.name}
               </span>
@@ -91,7 +91,7 @@ export function NavBar({ items, className }: NavBarProps) {
                 "transition-opacity duration-300",
                 isMobile ? "inline" : "md:hidden"
               )}>
-                <Icon size={isMobile ? 22 : 18} strokeWidth={isMobile ? 2 : 2.5} />
+                <Icon size={isMobile ? 20 : 18} strokeWidth={isMobile ? 2 : 2.5} />
               </span>
               
               {isActive && (
@@ -111,7 +111,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   <div className={cn(
                     "absolute left-1/2 -translate-x-1/2 bg-primary rounded-t-full",
                     isMobile 
-                      ? "w-6 h-1 -top-1" 
+                      ? "w-5 h-1 -top-1" 
                       : "w-8 h-1 -top-2"
                   )}>
                     <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />

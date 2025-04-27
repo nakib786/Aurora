@@ -137,7 +137,7 @@ const Navbar = () => {
             
             {/* Menu content */}
             <motion.div 
-              className="relative z-10 mt-20 flex-1 bg-white dark:bg-gray-900 p-6 rounded-t-3xl shadow-2xl overflow-auto"
+              className="relative z-10 mt-16 flex-1 bg-white dark:bg-gray-900 p-5 rounded-t-3xl shadow-2xl overflow-auto"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
@@ -145,14 +145,14 @@ const Navbar = () => {
             >
               <div className="max-w-md mx-auto flex flex-col h-full">
                 {/* Menu header */}
-                <div className="mb-8 flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Menu</h2>
+                <div className="mb-6 flex items-center justify-between">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Menu</h2>
                   <div className="h-1 w-10 bg-blue-500 rounded-full"></div>
                 </div>
                 
                 {/* Navigation */}
                 <div className="flex-1 flex flex-col">
-                  <div className="grid gap-4 mb-8">
+                  <div className="grid gap-3 mb-6">
                     {navItems.map((item) => {
                       const Icon = item.icon;
                       return (
@@ -162,12 +162,12 @@ const Navbar = () => {
                           className="flex items-center p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          <div className="mr-4 p-3 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors">
-                            <Icon size={20} />
+                          <div className="mr-3 p-2.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors">
+                            <Icon size={18} />
                           </div>
                           <div className="flex-1">
                             <h3 className="font-medium text-gray-900 dark:text-white">{item.name}</h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
                               {item.name === 'Home' ? 'Back to homepage' : 
                                item.name === 'Accounting & Taxation' ? 'Canadian tax services' :
                                item.name === 'Web Development' ? 'Website design services' :
@@ -190,9 +190,9 @@ const Navbar = () => {
                 </div>
                 
                 {/* Footer */}
-                <div className="mt-auto pt-6 border-t border-gray-200 dark:border-gray-700">
+                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
                   <div className="flex justify-between items-center">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">© 2023 Aurora N&N</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">© 2023 Aurora N&N</p>
                     <Link
                       href="/contact"
                       onClick={() => setIsMenuOpen(false)}
