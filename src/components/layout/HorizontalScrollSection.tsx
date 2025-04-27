@@ -68,7 +68,8 @@ export default function HorizontalScrollSection() {
         </p>
       </div>
       
-      <div className="relative w-full overflow-hidden">
+      {/* Desktop view (unchanged) - hidden on mobile */}
+      <div className="relative w-full overflow-hidden hidden md:block">
         <HorizontalScroll className="py-8">
           <div className="flex items-center space-x-8 px-8">
             {technologies.map((tech, index) => (
@@ -76,6 +77,24 @@ export default function HorizontalScrollSection() {
             ))}
           </div>
         </HorizontalScroll>
+      </div>
+      
+      {/* Mobile marquee view - only visible on mobile */}
+      <div className="md:hidden w-full overflow-hidden">
+        <div className="marquee-container py-8">
+          <div className="marquee">
+            <div className="marquee-content flex items-center space-x-4">
+              {technologies.map((tech, index) => (
+                <TechCard key={`marquee-1-${index}`} technology={tech} />
+              ))}
+            </div>
+            <div className="marquee-content flex items-center space-x-4" aria-hidden="true">
+              {technologies.map((tech, index) => (
+                <TechCard key={`marquee-2-${index}`} technology={tech} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
       
       <div className="mt-16 text-center">
@@ -86,6 +105,34 @@ export default function HorizontalScrollSection() {
           Start Your Project
         </a>
       </div>
+      
+      <style jsx>{`
+        .marquee-container {
+          width: 100%;
+          overflow: hidden;
+        }
+        
+        .marquee {
+          display: flex;
+          width: max-content;
+          animation: marquee 25s linear infinite;
+        }
+        
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .marquee-content {
+          display: flex;
+          min-width: 100%;
+          padding: 0 1rem;
+        }
+      `}</style>
     </div>
   );
 }
@@ -106,7 +153,7 @@ function TechCard({ technology }: { technology: Technology }) {
   };
   
   return (
-    <div className={`flex flex-col items-center p-6 rounded-xl border-2 ${categoryColors[technology.category]} min-w-[200px] transition-transform duration-300 hover:scale-105`}>
+    <div className={`flex flex-col items-center p-6 rounded-xl border-2 ${categoryColors[technology.category]} min-w-[150px] md:min-w-[200px] transition-transform duration-300 hover:scale-105`}>
       <div className="text-4xl mb-3">{technology.icon}</div>
       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{technology.name}</h3>
       <span className={`text-sm font-medium ${categoryTextColors[technology.category]} bg-white/50 dark:bg-gray-800/50 px-3 py-1 rounded-full`}>

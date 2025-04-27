@@ -87,7 +87,7 @@ export default function AccountingHero() {
   );
   
   return (
-    <div className="relative min-h-screen flex items-center overflow-hidden" ref={containerRef}>
+    <div className="relative min-h-screen flex items-center overflow-hidden pt-16 md:pt-20" ref={containerRef}>
       {/* Dynamic 3D Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-red-50 to-blue-100 dark:from-red-950 dark:via-blue-900 dark:to-gray-950 z-0">
         {/* Animated particles */}

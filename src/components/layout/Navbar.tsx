@@ -69,9 +69,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md py-2'
-          : 'bg-transparent py-5'
+        scrolled ? 'py-2' : 'py-5'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -102,7 +100,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-4">
           <ThemeToggle />
           <motion.button
-            className="relative z-[60] p-2 rounded-full bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-sm"
+            className="relative z-[60] p-2 rounded-full bg-transparent hover:bg-white/10 transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle Menu"
             whileTap={{ scale: 0.9 }}
@@ -117,7 +115,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, rotate: 45 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X size={20} className="text-gray-800 dark:text-white" />
+                  <X size={20} className="text-white" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -127,7 +125,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, rotate: -45 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu size={20} className="text-gray-800 dark:text-white" />
+                  <Menu size={20} className="text-white" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -147,7 +145,7 @@ const Navbar = () => {
           >
             {/* Backdrop */}
             <motion.div 
-              className="absolute inset-0 bg-black/20 dark:bg-black/50 backdrop-blur-md"
+              className="absolute inset-0 backdrop-blur-md"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -156,7 +154,7 @@ const Navbar = () => {
             
             {/* Menu content */}
             <motion.div 
-              className="absolute top-0 pt-16 w-full h-full flex-1 bg-white dark:bg-gray-900 rounded-t-3xl shadow-2xl overflow-y-auto overflow-x-hidden"
+              className="absolute top-0 pt-16 w-full h-full flex-1 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md rounded-t-3xl shadow-2xl overflow-y-auto overflow-x-hidden"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
@@ -178,15 +176,15 @@ const Navbar = () => {
                         <Link
                           key={item.name}
                           href={item.url}
-                          className="flex items-center p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+                          className="flex items-center p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-600/50 transition-colors group"
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          <div className="mr-3 p-2.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors">
+                          <div className="mr-3 p-2.5 rounded-full bg-blue-100 dark:bg-blue-400/30 text-blue-600 dark:text-blue-300 group-hover:bg-blue-200 dark:group-hover:bg-blue-400/50 transition-colors">
                             <Icon size={18} />
                           </div>
                           <div className="flex-1">
                             <h3 className="font-medium text-gray-900 dark:text-white">{item.name}</h3>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                            <p className="text-xs text-gray-500 dark:text-gray-300">
                               {item.name === 'Home' ? 'Back to homepage' : 
                                item.name === 'Accounting & Taxation' ? 'Canadian tax services' :
                                item.name === 'Web Development' ? 'Website design services' :
@@ -209,9 +207,9 @@ const Navbar = () => {
                 </div>
                 
                 {/* Footer */}
-                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-500">
                   <div className="flex justify-between items-center">
-                    <p className="text-xs text-gray-500 dark:text-gray-400">© 2023 Aurora N&N</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-300">© 2023 Aurora N&N</p>
                     <Link
                       href="/contact"
                       onClick={() => setIsMenuOpen(false)}
