@@ -38,14 +38,33 @@ const Navbar = () => {
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${scrollY}px`;
     } else {
-      document.body.style.overflow = 'unset';
+      // Restore scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      }
     }
+    
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.top = '';
     };
   }, [isMenuOpen]);
+
+  // Toggle menu handler with focus management
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header
@@ -83,8 +102,8 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-4">
           <ThemeToggle />
           <motion.button
-            className="relative z-50 p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 dark:bg-gray-800/20 dark:hover:bg-gray-800/40 transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="relative z-[60] p-2 rounded-full bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-sm"
+            onClick={toggleMenu}
             aria-label="Toggle Menu"
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
@@ -98,7 +117,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, rotate: 45 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X size={20} className={`${scrolled ? 'text-gray-800 dark:text-white' : 'text-white'}`} />
+                  <X size={20} className="text-gray-800 dark:text-white" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -108,7 +127,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, rotate: -45 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu size={20} className={`${scrolled ? 'text-gray-800 dark:text-white' : 'text-white'}`} />
+                  <Menu size={20} className="text-gray-800 dark:text-white" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -120,7 +139,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 md:hidden flex flex-col w-full"
+            className="fixed inset-0 z-[55] md:hidden flex flex-col w-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -137,13 +156,13 @@ const Navbar = () => {
             
             {/* Menu content */}
             <motion.div 
-              className="relative z-10 mt-16 flex-1 bg-white dark:bg-gray-900 p-5 rounded-t-3xl shadow-2xl overflow-y-auto overflow-x-hidden max-w-full"
+              className="absolute top-0 pt-16 w-full h-full flex-1 bg-white dark:bg-gray-900 rounded-t-3xl shadow-2xl overflow-y-auto overflow-x-hidden"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
             >
-              <div className="max-w-md mx-auto flex flex-col h-full">
+              <div className="max-w-md mx-auto flex flex-col h-full p-5">
                 {/* Menu header */}
                 <div className="mb-6 flex items-center justify-between">
                   <h2 className="text-xl font-bold text-gray-900 dark:text-white">Menu</h2>
