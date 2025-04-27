@@ -76,7 +76,7 @@ const AnimatedLogo = ({ className = '', delay = 0 }: AnimatedLogoProps) => {
         <g 
           stroke="currentColor" 
           fill="none" 
-          strokeWidth="2"
+          strokeWidth="4"
           strokeLinecap="round" 
           strokeLinejoin="round"
         >

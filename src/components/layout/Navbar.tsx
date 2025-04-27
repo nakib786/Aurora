@@ -76,7 +76,7 @@ const Navbar = () => {
         {/* Logo - now using the simplified AnimatedLogo component */}
         <Link href="/" className="flex items-center">
           <AnimatedLogo 
-            className={`h-10 w-48 ${
+            className={`h-14 w-64 ${
               scrolled ? 'text-blue-600 dark:text-blue-400' : 'text-white'
             }`} 
             delay={100}
