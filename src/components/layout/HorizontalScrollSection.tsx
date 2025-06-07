@@ -2,30 +2,129 @@
 
 import React, { useEffect, useRef } from 'react';
 import { HorizontalScroll } from '@/components/animations/AdvancedAnimations';
+import { motion } from 'framer-motion';
 
 interface Technology {
   name: string;
   icon: string;
   category: 'frontend' | 'backend' | 'tools' | 'accounting';
+  description: string;
+  gradient: string;
 }
 
 const technologies: Technology[] = [
-  { name: 'React', icon: '⚛️', category: 'frontend' },
-  { name: 'Next.js', icon: '▲', category: 'frontend' },
-  { name: 'TypeScript', icon: '🔷', category: 'frontend' },
-  { name: 'TailwindCSS', icon: '🌊', category: 'frontend' },
-  { name: 'Node.js', icon: '🟢', category: 'backend' },
-  { name: 'Python', icon: '🐍', category: 'backend' },
-  { name: 'PostgreSQL', icon: '🐘', category: 'backend' },
-  { name: 'MongoDB', icon: '🍃', category: 'backend' },
-  { name: 'Docker', icon: '🐳', category: 'tools' },
-  { name: 'AWS', icon: '☁️', category: 'tools' },
-  { name: 'GitHub', icon: '🐙', category: 'tools' },
-  { name: 'CI/CD', icon: '🔄', category: 'tools' },
-  { name: 'Accounting', icon: '📊', category: 'accounting' },
-  { name: 'Tax Planning', icon: '💰', category: 'accounting' },
-  { name: 'Financial Analysis', icon: '📈', category: 'accounting' },
-  { name: 'Bookkeeping', icon: '📚', category: 'accounting' },
+  { 
+    name: 'React', 
+    icon: '⚛️', 
+    category: 'frontend',
+    description: 'Modern UI library',
+    gradient: 'from-blue-400 via-blue-500 to-cyan-500'
+  },
+  { 
+    name: 'Next.js', 
+    icon: '▲', 
+    category: 'frontend',
+    description: 'Full-stack framework',
+    gradient: 'from-gray-700 via-gray-800 to-black'
+  },
+  { 
+    name: 'TypeScript', 
+    icon: '🔷', 
+    category: 'frontend',
+    description: 'Type-safe JavaScript',
+    gradient: 'from-blue-600 via-blue-700 to-blue-800'
+  },
+  { 
+    name: 'TailwindCSS', 
+    icon: '🌊', 
+    category: 'frontend',
+    description: 'Utility-first CSS',
+    gradient: 'from-cyan-400 via-teal-500 to-blue-600'
+  },
+  { 
+    name: 'Node.js', 
+    icon: '🟢', 
+    category: 'backend',
+    description: 'JavaScript runtime',
+    gradient: 'from-green-400 via-green-500 to-green-600'
+  },
+  { 
+    name: 'Python', 
+    icon: '🐍', 
+    category: 'backend',
+    description: 'Versatile programming',
+    gradient: 'from-yellow-400 via-yellow-500 to-amber-500'
+  },
+  { 
+    name: 'PostgreSQL', 
+    icon: '🐘', 
+    category: 'backend',
+    description: 'Advanced database',
+    gradient: 'from-blue-500 via-indigo-600 to-purple-600'
+  },
+  { 
+    name: 'MongoDB', 
+    icon: '🍃', 
+    category: 'backend',
+    description: 'NoSQL database',
+    gradient: 'from-green-500 via-emerald-600 to-teal-600'
+  },
+  { 
+    name: 'Docker', 
+    icon: '🐳', 
+    category: 'tools',
+    description: 'Containerization',
+    gradient: 'from-blue-400 via-blue-500 to-blue-600'
+  },
+  { 
+    name: 'AWS', 
+    icon: '☁️', 
+    category: 'tools',
+    description: 'Cloud platform',
+    gradient: 'from-orange-400 via-orange-500 to-red-500'
+  },
+  { 
+    name: 'GitHub', 
+    icon: '🐙', 
+    category: 'tools',
+    description: 'Version control',
+    gradient: 'from-gray-600 via-gray-700 to-gray-800'
+  },
+  { 
+    name: 'CI/CD', 
+    icon: '🔄', 
+    category: 'tools',
+    description: 'Automation pipeline',
+    gradient: 'from-purple-400 via-purple-500 to-purple-600'
+  },
+  { 
+    name: 'Financial Analysis', 
+    icon: '📊', 
+    category: 'accounting',
+    description: 'Data insights',
+    gradient: 'from-emerald-400 via-emerald-500 to-green-600'
+  },
+  { 
+    name: 'Tax Planning', 
+    icon: '💰', 
+    category: 'accounting',
+    description: 'Strategic optimization',
+    gradient: 'from-yellow-400 via-amber-500 to-orange-500'
+  },
+  { 
+    name: 'Bookkeeping', 
+    icon: '📚', 
+    category: 'accounting',
+    description: 'Record management',
+    gradient: 'from-indigo-400 via-indigo-500 to-purple-600'
+  },
+  { 
+    name: 'Compliance', 
+    icon: '✅', 
+    category: 'accounting',
+    description: 'Regulatory adherence',
+    gradient: 'from-green-400 via-green-500 to-emerald-600'
+  },
 ];
 
 export default function HorizontalScrollSection() {
@@ -38,10 +137,8 @@ export default function HorizontalScrollSection() {
     
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        // When the section is completely out of view, force reset
         if (!entry.isIntersecting && 
             (entry.boundingClientRect.bottom < -100 || entry.boundingClientRect.top > window.innerHeight + 100)) {
-          // Try to reset the transform
           const scrollContainer = section.querySelector('div');
           if (scrollContainer) {
             scrollContainer.style.transform = 'translateX(0)';
@@ -58,53 +155,104 @@ export default function HorizontalScrollSection() {
   }, []);
   
   return (
-    <div ref={scrollContainerRef} className="py-16 bg-gray-50 dark:bg-gray-900 overflow-hidden">
-      <div className="container mx-auto px-4 mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-2">
-          Our Expertise
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto">
-          We utilize cutting-edge technologies to deliver exceptional solutions for your business
-        </p>
+    <div ref={scrollContainerRef} className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-950 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 -right-40 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-600/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute -bottom-40 left-1/3 w-80 h-80 bg-gradient-to-r from-cyan-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
       
-      {/* Desktop view (unchanged) - hidden on mobile */}
+      <div className="container mx-auto px-4 mb-16 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 mb-6">
+            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Our Technology Stack</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
+              Cutting-Edge
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Expertise
+            </span>
+          </h2>
+          
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            We leverage the most advanced technologies and methodologies to deliver 
+            <span className="font-semibold text-blue-600 dark:text-blue-400"> exceptional solutions</span> that drive your business forward
+          </p>
+        </motion.div>
+      </div>
+      
+      {/* Desktop view with enhanced design */}
       <div className="relative w-full overflow-hidden hidden md:block">
-        <HorizontalScroll className="py-8">
+        <HorizontalScroll className="py-12">
           <div className="flex items-center space-x-8 px-8">
             {technologies.map((tech, index) => (
-              <TechCard key={index} technology={tech} />
+              <TechCard key={index} technology={tech} index={index} />
             ))}
           </div>
         </HorizontalScroll>
       </div>
       
-      {/* Mobile marquee view - only visible on mobile */}
+      {/* Mobile enhanced marquee view */}
       <div className="md:hidden w-full overflow-hidden">
-        <div className="marquee-container py-8">
+        <div className="marquee-container py-12">
           <div className="marquee">
-            <div className="marquee-content flex items-center space-x-4">
+            <div className="marquee-content flex items-center space-x-6">
               {technologies.map((tech, index) => (
-                <TechCard key={`marquee-1-${index}`} technology={tech} />
+                <TechCard key={`marquee-1-${index}`} technology={tech} index={index} />
               ))}
             </div>
-            <div className="marquee-content flex items-center space-x-4" aria-hidden="true">
+            <div className="marquee-content flex items-center space-x-6" aria-hidden="true">
               {technologies.map((tech, index) => (
-                <TechCard key={`marquee-2-${index}`} technology={tech} />
+                <TechCard key={`marquee-2-${index}`} technology={tech} index={index} />
               ))}
             </div>
           </div>
         </div>
       </div>
       
-      <div className="mt-16 text-center">
-        <a 
-          href="/contact"
-          className="inline-block bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 transform hover:scale-105"
-        >
-          Start Your Project
-        </a>
-      </div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="mt-20 text-center relative z-10"
+      >
+        <div className="inline-flex flex-col sm:flex-row gap-4">
+          <a 
+            href="/contact"
+            className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+          >
+            <span>Start Your Project</span>
+            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity -z-10"></div>
+          </a>
+          
+          <a 
+            href="/projects"
+            className="group inline-flex items-center gap-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 text-gray-900 dark:text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-gray-200/50 dark:border-gray-700/50"
+          >
+            <span>View Our Work</span>
+            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </a>
+        </div>
+      </motion.div>
       
       <style jsx>{`
         .marquee-container {
@@ -115,7 +263,7 @@ export default function HorizontalScrollSection() {
         .marquee {
           display: flex;
           width: max-content;
-          animation: marquee 25s linear infinite;
+          animation: marquee 30s linear infinite;
         }
         
         @keyframes marquee {
@@ -137,28 +285,61 @@ export default function HorizontalScrollSection() {
   );
 }
 
-function TechCard({ technology }: { technology: Technology }) {
+function TechCard({ technology, index }: { technology: Technology; index: number }) {
   const categoryColors = {
-    frontend: 'bg-blue-100 dark:bg-blue-900/30 border-blue-200 dark:border-blue-800',
-    backend: 'bg-green-100 dark:bg-green-900/30 border-green-200 dark:border-green-800',
-    tools: 'bg-purple-100 dark:bg-purple-900/30 border-purple-200 dark:border-purple-800',
-    accounting: 'bg-amber-100 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800',
+    frontend: 'from-blue-500/10 to-cyan-500/10 border-blue-200/30 dark:border-blue-800/30',
+    backend: 'from-green-500/10 to-emerald-500/10 border-green-200/30 dark:border-green-800/30',
+    tools: 'from-purple-500/10 to-pink-500/10 border-purple-200/30 dark:border-purple-800/30',
+    accounting: 'from-amber-500/10 to-orange-500/10 border-amber-200/30 dark:border-amber-800/30',
   };
   
-  const categoryTextColors = {
-    frontend: 'text-blue-600 dark:text-blue-400',
-    backend: 'text-green-600 dark:text-green-400',
-    tools: 'text-purple-600 dark:text-purple-400',
-    accounting: 'text-amber-600 dark:text-amber-400',
+  const categoryLabels = {
+    frontend: 'Frontend',
+    backend: 'Backend',
+    tools: 'DevOps',
+    accounting: 'Finance',
   };
   
   return (
-    <div className={`flex flex-col items-center p-6 rounded-xl border-2 ${categoryColors[technology.category]} min-w-[150px] md:min-w-[200px] transition-transform duration-300 hover:scale-105`}>
-      <div className="text-4xl mb-3">{technology.icon}</div>
-      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{technology.name}</h3>
-      <span className={`text-sm font-medium ${categoryTextColors[technology.category]} bg-white/50 dark:bg-gray-800/50 px-3 py-1 rounded-full`}>
-        {technology.category.charAt(0).toUpperCase() + technology.category.slice(1)}
-      </span>
-    </div>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      className={`group relative flex flex-col items-center p-8 rounded-3xl bg-gradient-to-br ${categoryColors[technology.category]} backdrop-blur-sm border min-w-[200px] md:min-w-[280px] transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5`}
+    >
+      {/* Gradient overlay on hover */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${technology.gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`}></div>
+      
+      {/* Icon with enhanced styling */}
+      <div className="relative mb-6">
+        <div className={`absolute inset-0 bg-gradient-to-r ${technology.gradient} rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500`}></div>
+        <div className={`relative w-16 h-16 bg-gradient-to-r ${technology.gradient} rounded-2xl flex items-center justify-center text-3xl shadow-lg`}>
+          {technology.icon}
+        </div>
+      </div>
+      
+      {/* Content */}
+      <div className="text-center relative z-10">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+          {technology.name}
+        </h3>
+        
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          {technology.description}
+        </p>
+        
+        <div className="inline-flex items-center gap-2">
+          <div className={`w-2 h-2 bg-gradient-to-r ${technology.gradient} rounded-full`}></div>
+          <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            {categoryLabels[technology.category]}
+          </span>
+        </div>
+      </div>
+      
+      {/* Hover effect border */}
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+    </motion.div>
   );
 } 
