@@ -125,12 +125,12 @@ export default function VerticalScrollSection() {
   };
 
   return (
-    <div ref={sectionRef} className="relative py-32 bg-gradient-to-b from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-gray-900 dark:to-blue-950 overflow-hidden">
+    <div ref={sectionRef} className="relative py-16 sm:py-24 md:py-32 bg-gradient-to-b from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-gray-900 dark:to-blue-950 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 -right-40 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-pink-600/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute -bottom-40 left-1/3 w-72 h-72 bg-gradient-to-r from-emerald-400/10 to-cyan-600/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute -top-20 sm:-top-40 -left-20 sm:-left-40 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gradient-to-r from-blue-400/10 to-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 -right-20 sm:-right-40 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-purple-400/10 to-pink-600/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute -bottom-20 sm:-bottom-40 left-1/3 w-36 h-36 sm:w-54 sm:h-54 md:w-72 md:h-72 bg-gradient-to-r from-emerald-400/10 to-cyan-600/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
       
       <motion.div 
@@ -142,27 +142,27 @@ export default function VerticalScrollSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 mb-6 sm:mb-8">
             <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">What We Offer</span>
+            <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">What We Offer</span>
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
               Our Services
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             Comprehensive business solutions tailored to your specific needs with 
             <span className="font-semibold text-blue-600 dark:text-blue-400"> cutting-edge technology</span> and expert guidance
           </p>
         </motion.div>
         
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {services.map((service, index) => (
             <InteractiveServiceCard 
               key={service.id} 
@@ -181,7 +181,7 @@ export default function VerticalScrollSection() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-3xl p-8 md:p-12 shadow-2xl"
+            className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl"
           >
             <ServiceDetail service={activeService} />
           </motion.div>
@@ -192,11 +192,11 @@ export default function VerticalScrollSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-20 text-center"
+          className="mt-12 sm:mt-16 md:mt-20 text-center"
         >
           <a 
             href="/contact"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold py-4 px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-semibold py-3 sm:py-4 px-8 sm:px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
           >
             <span>Get Started Today</span>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -255,17 +255,17 @@ function InteractiveServiceCard({ service, index, isActive, onClick }: {
       onClick={onClick}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className={`group relative cursor-pointer p-8 rounded-3xl border-2 backdrop-blur-sm transition-all duration-500 overflow-hidden ${
+      className={`group relative cursor-pointer p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border-2 backdrop-blur-sm transition-all duration-500 overflow-hidden ${
         isActive 
           ? `${colorMap[service.color as keyof typeof colorMap]} shadow-2xl scale-105` 
           : 'bg-white/60 dark:bg-gray-800/60 border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl hover:border-gray-300/50 dark:hover:border-gray-600/50'
       }`}
     >
       {/* Background gradient overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradientMap[service.color as keyof typeof gradientMap]} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradientMap[service.color as keyof typeof gradientMap]} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
       
       {/* Interactive Background Animation */}
-      <div className="absolute inset-0 overflow-hidden rounded-3xl">
+      <div className="absolute inset-0 overflow-hidden rounded-2xl sm:rounded-3xl">
                  <AnimatedBackground type={service.animationType} isHovered={isHovered} />
       </div>
       
@@ -273,7 +273,7 @@ function InteractiveServiceCard({ service, index, isActive, onClick }: {
       <div className="relative z-10">
         {/* Icon with enhanced animation */}
         <motion.div 
-          className={`inline-flex p-4 rounded-2xl mb-6 ${isActive ? colorMap[service.color as keyof typeof colorMap] : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'} transition-all duration-300`}
+          className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 ${isActive ? colorMap[service.color as keyof typeof colorMap] : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'} transition-all duration-300`}
           animate={controls}
           variants={{
             initial: { scale: 1, rotate: 0 },
@@ -284,7 +284,7 @@ function InteractiveServiceCard({ service, index, isActive, onClick }: {
         </motion.div>
         
         {/* Title */}
-        <h3 className={`text-2xl font-bold mb-4 transition-all duration-300 ${
+        <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 transition-all duration-300 ${
           isActive 
             ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600' 
             : 'text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400'
@@ -293,7 +293,7 @@ function InteractiveServiceCard({ service, index, isActive, onClick }: {
         </h3>
         
         {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
           {service.description}
         </p>
         
@@ -301,7 +301,7 @@ function InteractiveServiceCard({ service, index, isActive, onClick }: {
         <ServiceSpecificElements type={service.animationType} isHovered={isHovered} />
         
         {/* Learn More Link */}
-        <div className={`inline-flex items-center text-sm font-medium transition-all duration-300 ${
+        <div className={`inline-flex items-center text-xs sm:text-sm font-medium transition-all duration-300 ${
           isActive 
             ? colorMap[service.color as keyof typeof colorMap].split(' ')[2] 
             : 'text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400'
@@ -309,7 +309,7 @@ function InteractiveServiceCard({ service, index, isActive, onClick }: {
           <span>{isActive ? 'View Details' : 'Learn More'}</span>
           <motion.svg 
             xmlns="http://www.w3.org/2000/svg" 
-            className="h-4 w-4 ml-2" 
+            className="h-3 w-3 sm:h-4 sm:w-4 ml-2" 
             viewBox="0 0 24 24" 
             fill="none" 
             stroke="currentColor" 
@@ -342,6 +342,11 @@ function InteractiveServiceCard({ service, index, isActive, onClick }: {
 }
 
 function AnimatedBackground({ type, isHovered }: { type: string; isHovered: boolean }) {
+  // Deterministic values to avoid hydration mismatch
+  const codeWidths = [45, 32, 58, 28, 41, 35];
+  const codeLeftPositions = [15, 25, 8, 45, 12, 38];
+  const chartHeights = [55, 68, 45, 62, 50]; // Deterministic heights for chart bars
+
   switch (type) {
     case 'code':
       return (
@@ -351,9 +356,9 @@ function AnimatedBackground({ type, isHovered }: { type: string; isHovered: bool
               key={i}
               className="absolute bg-blue-500 rounded-sm"
               style={{
-                width: Math.random() * 60 + 20,
+                width: codeWidths[i],
                 height: 2,
-                left: `${Math.random() * 80}%`,
+                left: `${codeLeftPositions[i]}%`,
                 top: `${20 + i * 12}%`,
               }}
               animate={{
@@ -383,7 +388,7 @@ function AnimatedBackground({ type, isHovered }: { type: string; isHovered: bool
                 bottom: '20%',
               }}
               animate={{
-                height: isHovered ? [20, 40 + Math.random() * 30, 20] : 20,
+                height: isHovered ? [20, chartHeights[i], 20] : 20,
                 opacity: isHovered ? [0.5, 0.8, 0.5] : 0.5,
               }}
               transition={{

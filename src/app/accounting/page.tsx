@@ -79,13 +79,11 @@ export default function AccountingPage() {
                  </div>
                </AnimeWrapper>
                
-               <AnimeText 
-                 animation="typewriter"
-                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
-                 delay={500}
-               >
-                 Professional Accounting & Taxation Solutions
-               </AnimeText>
+               <AnimeWrapper animation="slideLeft" delay={500}>
+                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
+                   Professional Accounting & Taxation Solutions
+                 </h1>
+               </AnimeWrapper>
                
                <AnimeWrapper animation="fadeIn" delay={1500}>
                  <p className="text-xl text-gray-300 max-w-xl leading-relaxed">

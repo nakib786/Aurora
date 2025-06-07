@@ -155,15 +155,15 @@ export default function HorizontalScrollSection() {
   }, []);
   
   return (
-    <div ref={scrollContainerRef} className="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-950 overflow-hidden">
+    <div ref={scrollContainerRef} className="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-950 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 -right-40 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-600/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute -bottom-40 left-1/3 w-80 h-80 bg-gradient-to-r from-cyan-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute -top-20 sm:-top-40 -left-20 sm:-left-40 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 -right-20 sm:-right-40 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-gradient-to-r from-purple-400/20 to-pink-600/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute -bottom-20 sm:-bottom-40 left-1/3 w-40 h-40 sm:w-60 sm:h-60 md:w-80 md:h-80 bg-gradient-to-r from-cyan-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
       
-      <div className="container mx-auto px-4 mb-16 relative z-10">
+      <div className="container mx-auto px-4 mb-12 sm:mb-16 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -171,12 +171,12 @@ export default function HorizontalScrollSection() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 mb-4 sm:mb-6">
             <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Our Technology Stack</span>
+            <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">Our Technology Stack</span>
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
               Cutting-Edge
             </span>
@@ -186,7 +186,7 @@ export default function HorizontalScrollSection() {
             </span>
           </h2>
           
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             We leverage the most advanced technologies and methodologies to deliver 
             <span className="font-semibold text-blue-600 dark:text-blue-400"> exceptional solutions</span> that drive your business forward
           </p>
@@ -307,26 +307,26 @@ function TechCard({ technology, index }: { technology: Technology; index: number
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -8, scale: 1.02 }}
-      className={`group relative flex flex-col items-center p-8 rounded-3xl bg-gradient-to-br ${categoryColors[technology.category]} backdrop-blur-sm border min-w-[200px] md:min-w-[280px] transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5`}
+      className={`group relative flex flex-col items-center p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br ${categoryColors[technology.category]} backdrop-blur-sm border min-w-[160px] sm:min-w-[200px] md:min-w-[280px] transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5`}
     >
       {/* Gradient overlay on hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${technology.gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`}></div>
+      <div className={`absolute inset-0 bg-gradient-to-br ${technology.gradient} opacity-0 group-hover:opacity-5 rounded-2xl sm:rounded-3xl transition-opacity duration-500`}></div>
       
       {/* Icon with enhanced styling */}
-      <div className="relative mb-6">
-        <div className={`absolute inset-0 bg-gradient-to-r ${technology.gradient} rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500`}></div>
-        <div className={`relative w-16 h-16 bg-gradient-to-r ${technology.gradient} rounded-2xl flex items-center justify-center text-3xl shadow-lg`}>
+      <div className="relative mb-4 sm:mb-6">
+        <div className={`absolute inset-0 bg-gradient-to-r ${technology.gradient} rounded-xl sm:rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500`}></div>
+        <div className={`relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r ${technology.gradient} rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl shadow-lg`}>
           {technology.icon}
         </div>
       </div>
       
       {/* Content */}
       <div className="text-center relative z-10">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+        <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
           {technology.name}
         </h3>
         
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-3 sm:mb-4 leading-relaxed">
           {technology.description}
         </p>
         
@@ -339,7 +339,7 @@ function TechCard({ technology, index }: { technology: Technology; index: number
       </div>
       
       {/* Hover effect border */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+      <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
     </motion.div>
   );
 } 

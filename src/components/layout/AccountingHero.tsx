@@ -3,18 +3,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   motion, 
-  useMotionValue, 
   useSpring, 
   AnimatePresence 
 } from '../animations/MotionComponents';
 import { 
   TypewriterText, 
   RevealText,
-  FloatingElements,
-  CodeEffect 
+  FloatingElements
 } from '@/components/animations/AdvancedAnimations';
 import AnimeParticles from '@/components/animations/AnimeParticles';
-import AnimatedLogo from '@/components/animations/AnimatedLogo';
 import { useTheme } from '@/components/ui/theme-provider';
 
 export default function AccountingHero() {
@@ -100,20 +97,20 @@ export default function AccountingHero() {
         
         {/* Canadian maple leaf background elements */}
         <div className="absolute inset-0 opacity-5 dark:opacity-10">
-          <svg className="absolute top-40 left-20 w-32 h-32 text-red-600 dark:text-red-500 transform rotate-12" viewBox="0 0 512 512" fill="currentColor">
+          <svg className="absolute top-20 sm:top-40 left-10 sm:left-20 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 text-red-600 dark:text-red-500 transform rotate-12" viewBox="0 0 512 512" fill="currentColor">
             <path d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"/>
           </svg>
-          <svg className="absolute top-1/4 right-1/4 w-48 h-48 text-red-600 dark:text-red-500 transform -rotate-6" viewBox="0 0 512 512" fill="currentColor" opacity="0.3">
+          <svg className="absolute top-1/4 right-1/4 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 text-red-600 dark:text-red-500 transform -rotate-6" viewBox="0 0 512 512" fill="currentColor" opacity="0.3">
             <path d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"/>
           </svg>
-          <svg className="absolute bottom-20 left-1/3 w-24 h-24 text-red-600 dark:text-red-500 transform rotate-45" viewBox="0 0 512 512" fill="currentColor" opacity="0.4">
+          <svg className="absolute bottom-10 sm:bottom-20 left-1/3 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 text-red-600 dark:text-red-500 transform rotate-45" viewBox="0 0 512 512" fill="currentColor" opacity="0.4">
             <path d="M383.8 351.7c2.5-2.5 105.2-92.4 105.2-92.4l-17.5-7.5c-10-4.9-7.4-11.5-5-17.4 2.4-7.6 20.1-67.3 20.1-67.3s-47.7 10-57.7 12.5c-7.5 2.4-10-2.5-12.5-7.5s-15-32.4-15-32.4-52.6 59.9-55.1 62.3c-10 7.5-20.1 0-17.6-10 0-10 27.6-129.6 27.6-129.6s-30.1 17.4-40.1 22.4c-7.5 5-12.6 5-17.6-5C293.5 72.3 255.9 0 255.9 0s-37.5 72.3-42.5 79.8c-5 10-10 10-17.6 5-10-5-40.1-22.4-40.1-22.4S183.3 182 183.3 192c2.5 10-7.5 17.5-17.6 10-2.5-2.5-55.1-62.3-55.1-62.3S98.1 167 95.6 172s-5 9.9-12.5 7.5C73 177 25.4 167 25.4 167s17.6 59.7 20.1 67.3c2.4 6 5 12.5-5 17.4L23 259.3s102.6 89.9 105.2 92.4c5.1 5 10 7.5 5.1 22.5-5.1 15-10.1 35.1-10.1 35.1s95.2-20.1 105.3-22.6c8.7-.9 18.3 2.5 18.3 12.5S241 512 241 512h30s-5.8-102.7-5.8-112.8 9.5-13.4 18.4-12.5c10 2.5 105.2 22.6 105.2 22.6s-5-20.1-10-35.1 0-17.5 5-22.5z"/>
           </svg>
         </div>
         
         {/* Animated glowing orbs - Canadian themed */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-red-500/20 dark:bg-red-500/20 blur-3xl"
+          className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full bg-red-500/20 dark:bg-red-500/20 blur-3xl"
           animate={{ 
             scale: [1, 1.2, 1],
             opacity: [0.2, 0.3, 0.2]
@@ -126,7 +123,7 @@ export default function AccountingHero() {
         />
         
         <motion.div 
-          className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-blue-500/20 dark:bg-blue-500/20 blur-3xl"
+          className="absolute bottom-1/4 right-1/3 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 rounded-full bg-blue-500/20 dark:bg-blue-500/20 blur-3xl"
           animate={{ 
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.2, 0.3]
@@ -142,12 +139,12 @@ export default function AccountingHero() {
         {/* Floating accounting symbols */}
         <div className="absolute opacity-10 dark:opacity-15">
           <FloatingElements>
-            <div className="float-item absolute top-1/4 left-1/5 text-6xl opacity-70">$</div>
-            <div className="float-item absolute top-1/3 right-1/4 text-7xl opacity-70">%</div>
-            <div className="float-item absolute bottom-1/3 left-1/3 text-5xl opacity-70">$</div>
-            <div className="float-item absolute bottom-1/4 right-1/5 text-6xl opacity-70 text-red-600">C$</div>
-            <div className="float-item absolute top-2/3 left-1/6 text-8xl opacity-70 text-red-600">$</div>
-            <div className="float-item absolute top-1/6 right-1/3 text-5xl opacity-70">CAD</div>
+            <div className="float-item absolute top-1/4 left-1/5 text-3xl sm:text-4xl md:text-6xl opacity-70">$</div>
+            <div className="float-item absolute top-1/3 right-1/4 text-4xl sm:text-5xl md:text-7xl opacity-70">%</div>
+            <div className="float-item absolute bottom-1/3 left-1/3 text-2xl sm:text-3xl md:text-5xl opacity-70">$</div>
+            <div className="float-item absolute bottom-1/4 right-1/5 text-3xl sm:text-4xl md:text-6xl opacity-70 text-red-600">C$</div>
+            <div className="float-item absolute top-2/3 left-1/6 text-4xl sm:text-6xl md:text-8xl opacity-70 text-red-600">$</div>
+            <div className="float-item absolute top-1/6 right-1/3 text-2xl sm:text-3xl md:text-5xl opacity-70">CAD</div>
           </FloatingElements>
         </div>
       </div>
@@ -157,7 +154,7 @@ export default function AccountingHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left column - Text content */}
           <motion.div 
-            className="lg:col-span-6 space-y-8"
+            className="lg:col-span-6 space-y-6 sm:space-y-8"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -167,13 +164,13 @@ export default function AccountingHero() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-blue-600 dark:from-red-600 dark:to-blue-700 text-white text-sm font-medium mb-2">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-blue-600 dark:from-red-600 dark:to-blue-700 text-white text-xs sm:text-sm font-medium mb-2">
                 <span className="w-2 h-2 rounded-full bg-white mr-2 animate-pulse"></span>
                 Canadian Tax Experts & Business Solutions
               </div>
             </motion.div>
             
-            <RevealText className="relative text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
+            <RevealText className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white">
               <h1>
                 Aurora N&N <br/>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-blue-600 dark:from-red-400 dark:to-blue-400">
@@ -182,7 +179,7 @@ export default function AccountingHero() {
               </h1>
             </RevealText>
             
-            <TypewriterText className="text-xl text-gray-600 dark:text-gray-300 max-w-xl" delay={1000}>
+            <TypewriterText className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-xl" delay={1000}>
               Maximize your CRA tax refunds with our expert Canadian accounting, taxation, and web development solutions.
             </TypewriterText>
             
@@ -194,7 +191,7 @@ export default function AccountingHero() {
             >
               <a 
                 href="/accounting" 
-                className="group relative overflow-hidden btn-primary inline-block bg-gradient-to-r from-red-600 to-blue-600 dark:from-red-500 dark:to-blue-500 hover:from-red-700 hover:to-blue-700 dark:hover:from-red-600 dark:hover:to-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg transform hover:-translate-y-1"
+                className="group relative overflow-hidden btn-primary inline-block bg-gradient-to-r from-red-600 to-blue-600 dark:from-red-500 dark:to-blue-500 hover:from-red-700 hover:to-blue-700 dark:hover:from-red-600 dark:hover:to-blue-600 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 shadow-lg transform hover:-translate-y-1 text-center"
               >
                 Tax Services
                 <span className="absolute inset-0 w-full h-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"></span>

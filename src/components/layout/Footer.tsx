@@ -45,7 +45,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative overflow-hidden py-16">
+    <footer className="relative overflow-hidden py-12 sm:py-16">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"></div>
       
@@ -54,7 +54,7 @@ const Footer = () => {
       
       {/* Decorative elements */}
       <motion.div 
-        className="absolute -top-40 -right-20 w-96 h-96 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-3xl"
+        className="absolute -top-20 sm:-top-40 -right-10 sm:-right-20 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-3xl"
         animate={{ 
           x: [0, 40, 0], 
           scale: [1, 1.1, 1]
@@ -66,7 +66,7 @@ const Footer = () => {
         }}
       />
       <motion.div 
-        className="absolute bottom-0 left-20 w-72 h-72 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl"
+        className="absolute bottom-0 left-10 sm:left-20 w-36 h-36 sm:w-54 sm:h-54 md:w-72 md:h-72 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl"
         animate={{ 
           y: [0, -30, 0], 
           scale: [1, 1.2, 1]
@@ -81,25 +81,25 @@ const Footer = () => {
       {/* Content container */}
       <div className="container relative z-10 mx-auto px-4">
         {/* Footer top - services highlight */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <motion.div 
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-center mb-8"
+            className="text-center mb-6 sm:mb-8"
           >
-            <span className="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-sm font-medium mb-4 shadow-lg shadow-blue-500/20">
+            <span className="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-xs sm:text-sm font-medium mb-4 shadow-lg shadow-blue-500/20">
               Professional Services
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
                 Expertise You Can Trust
               </span>
             </h2>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Accounting */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -107,14 +107,14 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-gray-800/80 to-gray-700/60 backdrop-blur-sm border border-gray-700/50 shadow-xl"
+              className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-gray-800/80 to-gray-700/60 backdrop-blur-sm border border-gray-700/50 shadow-xl"
             >
-              <div className="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30">
+              <div className="mb-3 sm:mb-4 inline-flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30">
                 {serviceIcons.accounting}
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Accounting</h3>
-              <p className="text-gray-300 mb-4">Expert financial management solutions to streamline your business operations.</p>
-              <Link href="/accounting" className="group inline-flex items-center text-cyan-400 text-sm font-medium">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Accounting</h3>
+              <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">Expert financial management solutions to streamline your business operations.</p>
+              <Link href="/accounting" className="group inline-flex items-center text-cyan-400 text-xs sm:text-sm font-medium">
                 Learn more 
                 <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
               </Link>
@@ -127,14 +127,14 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-gray-800/80 to-gray-700/60 backdrop-blur-sm border border-gray-700/50 shadow-xl"
+              className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-gray-800/80 to-gray-700/60 backdrop-blur-sm border border-gray-700/50 shadow-xl"
             >
-              <div className="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/30">
+              <div className="mb-3 sm:mb-4 inline-flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/30">
                 {serviceIcons.taxation}
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Taxation</h3>
-              <p className="text-gray-300 mb-4">Strategic tax planning and preparation to maximize your financial benefits.</p>
-              <Link href="/taxation" className="group inline-flex items-center text-purple-400 text-sm font-medium">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Taxation</h3>
+              <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">Strategic tax planning and preparation to maximize your financial benefits.</p>
+              <Link href="/taxation" className="group inline-flex items-center text-purple-400 text-xs sm:text-sm font-medium">
                 Learn more 
                 <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
               </Link>
@@ -147,14 +147,14 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               whileHover={{ y: -5 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-gray-800/80 to-gray-700/60 backdrop-blur-sm border border-gray-700/50 shadow-xl"
+              className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-gray-800/80 to-gray-700/60 backdrop-blur-sm border border-gray-700/50 shadow-xl"
             >
-              <div className="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-r from-pink-500 to-orange-500 text-white shadow-lg shadow-pink-500/30">
+              <div className="mb-3 sm:mb-4 inline-flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-r from-pink-500 to-orange-500 text-white shadow-lg shadow-pink-500/30">
                 {serviceIcons.webdesign}
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Web Design</h3>
-              <p className="text-gray-300 mb-4">Cutting-edge web solutions to elevate your digital presence and reach.</p>
-              <Link href="/webdesign" className="group inline-flex items-center text-pink-400 text-sm font-medium">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Web Design</h3>
+              <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">Cutting-edge web solutions to elevate your digital presence and reach.</p>
+              <Link href="/webdesign" className="group inline-flex items-center text-pink-400 text-xs sm:text-sm font-medium">
                 Learn more 
                 <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
               </Link>
